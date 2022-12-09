@@ -14,7 +14,7 @@ class Song(models.Model):
 
 class Favorite(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    song = Song()
+    song = models.ManyToManyField(Song)
 
     def __str__(self):
-        return self.song.name
+        return self.user
