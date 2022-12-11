@@ -4,13 +4,23 @@ from rest_framework.response import Response
 import requests
 import base64
 from urllib.parse import urlencode
+import environ
+
+
+# initializing the environment variables 
+
+env = environ.Env()
+
+# reading the .env file
+
+environ.Env.read_env()
 
 
 # Create your views here.
 
 def getAccessToken():
-    client_id = 'b7d4cce9b6a14b72997d8864f8e93ef4'
-    client_secret = '8521397fa09446e986b3348b707b9eba'
+    client_id = env('CLIENT_ID')
+    client_secret = env('CLIENT_SECRET')
     token_url = 'https://accounts.spotify.com/api/token'
     client_credentials = f'{client_id}:{client_secret}'
     client_b64 = base64.b64encode(client_credentials.encode())
