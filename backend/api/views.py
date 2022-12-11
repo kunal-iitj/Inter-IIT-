@@ -10,9 +10,6 @@ import environ
 # initializing the environment variables 
 
 env = environ.Env()
-
-# reading the .env file
-
 environ.Env.read_env()
 
 
@@ -22,16 +19,13 @@ def getAccessToken():
     client_id = env('CLIENT_ID')
     client_secret = env('CLIENT_SECRET')
     token_url = 'https://accounts.spotify.com/api/token'
+    
+    # encoding the client credentials
     client_credentials = f'{client_id}:{client_secret}'
     client_b64 = base64.b64encode(client_credentials.encode())
 
-    token_data = {
-        'grant_type': 'client_credentials'
-    }
-
-    token_headers = {
-        'Authorization': f'Basic {client_b64.decode()}'
-    }
+    token_data = {'grant_type': 'client_credentials'}
+    token_headers = {'Authorization': f'Basic {client_b64.decode()}'}
 
     req = requests.post(token_url, data=token_data, headers=token_headers)
     respone_data = req.json()
@@ -39,26 +33,29 @@ def getAccessToken():
     return token
 
 
-def fetchAlbum(token):
-    headers = {
-        'Authorization': f'Bearer {token}'
-    }
+def makeSearchCall(token, searchQuery: str, filter: str):
     endpoint = 'https://api.spotify.com/v1/search'
-    data = urlencode(
-        {
-            'q': 'By Your Side',
-            'type': 'track'
-        }
-    )
-
+    headers = {'Authorization': f'Bearer {token}'}
+    data = urlencode({'q': searchQuery, 'type': filter})
     lookup_url = f'{endpoint}?{data}'
     req = requests.get(lookup_url, headers=headers)
     response = req.json()
+    response = response['artists']['items'][0]
     return response
 
 
 @api_view(['GET'])
-def fetchData(request):
+def fetchArtist(request):
     token = getAccessToken()
-    response = fetchAlbum(token)
-    return Response(response)
+    artist = makeSearchCall(token, 'Drake', 'artist')
+    required_response = dict()
+    required_response['name'] = artist['name']
+    required_response['images'] = artist['images']
+    required_response['genres'] = artist['genres']
+    return Response(artist)
+
+
+@api_view(['GET'])
+def fetchCatgoryPlaylist(request):
+    token = getAccessToken()
+    
