@@ -43,6 +43,14 @@ def makeSearchCall(token, searchQuery: str, filter: str):
     response = response['artists']['items'][0]
     return response
 
+def searchForGivenPlaylist(token, category):
+    endpoint = f'https://api.spotify.com/v1/browse/categories/{category}/playlists'
+    headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
+    req = requests.get(endpoint, headers=headers)
+    response = req.json()
+    return response
+
+
 
 @api_view(['GET'])
 def fetchArtist(request):
@@ -56,6 +64,7 @@ def fetchArtist(request):
 
 
 @api_view(['GET'])
-def fetchCatgoryPlaylist(request):
+def fetchCategoryPlaylist(request):
     token = getAccessToken()
-    
+    playlist = searchForGivenPlaylist(token, 'workout')
+    return Response(playlist)
