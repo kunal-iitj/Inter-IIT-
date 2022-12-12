@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import profile from "./../Images/profile.jpg"
 import arrow from "./../Images/arrow.png"
+import Card from './Card';
 
 export default function Rightpanel() {
   function leftScroll(heading) {
@@ -11,12 +12,35 @@ export default function Rightpanel() {
     const right = document.querySelector(`.${heading}`);
     right.scrollBy(150, 0);
   }
+  const recommended = 6;
+  const trending = 7;
+  const artists = 6;
+  const instrumental = 5;
+  var recommendedsong=[];
+  for(var i=0; i<recommended; i++){
+    recommendedsong.push({Card:<Card/>,key:i});
+  }
+  var trendingsong=[];
+  for(var i=0; i<trending; i++){
+    trendingsong.push({Card:<Card/>,key:i});
+  }
+  var ArtistsPlaylist=[];
+  for(var i=0; i<artists; i++){
+    ArtistsPlaylist.push({Card:<Card/>,key:i});
+  }
+  var Instrumenatalsongs=[];
+  for(var i=0; i<instrumental; i++){
+    Instrumenatalsongs.push({Card:<Card/>,key:i});
+  }
   return (
     <div className='parts'>
       <div className="part1">
+        <button className="albums">Albums</button>
+        <button className="playlisttop">Playlist</button>
+        <button className="genres">Genres</button>
         <div className="profile">
         <img src={profile} alt="Avatar"/>
-        <div className="username">USERNAME</div>
+        <div className="username">username</div>
         </div>
         
       </div>
@@ -30,17 +54,10 @@ export default function Rightpanel() {
           <img src={arrow} alt="" />
         </button>
         <div className="scrolled recommended">
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
+          
+        {recommendedsong.map(i=>
+          {return <Card/>}
+        )}
         </div>
           <button className="right" onClick={()=>rightScroll("recommended")}>
           <img src={arrow} alt="" /></button>
@@ -49,17 +66,9 @@ export default function Rightpanel() {
         <h1>Trending Songs</h1>
         <button className="left" onClick={()=>leftScroll("trending")}><img src={arrow} alt="" /></button>
         <div className="scrolled trending">
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
+        {trendingsong.map(i=>
+          {return <Card/>}
+        )}  
         </div>
         <button className="right" onClick={()=>rightScroll("trending")}><img src={arrow} alt="" />
 </button>
@@ -68,15 +77,9 @@ export default function Rightpanel() {
         <h1>Artists</h1>
         <button className="left" onClick={()=>leftScroll("artist")}><img src={arrow} alt="" /></button>
         <div className="scrolled artist">
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
+        {ArtistsPlaylist.map(i=>
+          {return <Card/>}
+        )}
         </div>
         <button className="right" onClick={()=>rightScroll("artist")}> <img src={arrow} alt="" />
 </button>
@@ -85,16 +88,11 @@ export default function Rightpanel() {
         <h1>Instrumental</h1>
         <button className="left" onClick={()=>leftScroll("instrumental")}><img src={arrow} alt="" /></button>
         <div className="scrolled instrumental">
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <div className="scrollx"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="" /><div><div>#SongName</div><div>#ArtistName</div></div></div>
-          <button className="right" onClick={()=>rightScroll("instrumental")}><img src={arrow} alt="" /></button>
+        {Instrumenatalsongs.map(i=>
+          {return <Card/>}
+        )}
         </div>
+          <button className="right" onClick={()=>rightScroll("instrumental")}><img src={arrow} alt="" /></button>
       </div>
 
       
