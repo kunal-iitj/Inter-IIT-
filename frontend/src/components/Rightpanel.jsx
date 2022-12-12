@@ -35,9 +35,12 @@ export default function Rightpanel() {
   return (
     <div className='parts'>
       <div className="part1">
+        <button className="albums">Albums</button>
+        <button className="playlisttop">Playlist</button>
+        <button className="genres">Genres</button>
         <div className="profile">
         <img src={profile} alt="Avatar"/>
-        <div className="username">USERNAME</div>
+        <div className="username">username</div>
         </div>
         
       </div>
