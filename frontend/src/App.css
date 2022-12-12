@@ -31,7 +31,7 @@
 }
 button:hover{
   font-size: 1.25vw;
-  color: yellow;
+  color: rgb(66, 198, 134);
   cursor: pointer;
 }
 
@@ -57,16 +57,19 @@ button:hover{
 .album_desc{
   font-size: 5vw;
   font-weight: 500;
-  color: rgb(184, 151, 107);
+  font-family: sans-serif;
+  color: white;
+}
+.album_desc p{
+  font-size: 2vw;
+  font-weight: 500;
+  color: grey;
 }
 .album_desc:hover{
   cursor: pointer;
 }
 
-.album_desc p{
-  font-size: 2vw;
-  font-weight: 500;
-}
+
 .album_desc p:hover{
   cursor: pointer;
   text-decoration: underline;
@@ -116,7 +119,8 @@ button:hover{
   position: relative;
   margin: 0;
   letter-spacing: 0.1em;
-  color: rgb(243, 202, 202);
+  color: white;
+  font-family: sans-serif;
   top: 0vh;
   left: 1vw;
 }
@@ -285,10 +289,13 @@ display: none;
   font-size: 20px;
   padding-bottom: 5px;
   color: white;
+  font-family: sans-serif;
 }
 .artistname{
   font-size: 15px;
   color: #bbcdcd;
+  font-family: sans-serif;
+
 }
 
 .home button img{

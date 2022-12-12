@@ -1,37 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
 import profile from "./../Images/profile.jpg"
-import arrow from "./../Images/arrow.png"
+import arrow from './../Images/arrow.png'
 import Card from './Card';
+import Recommended from './Recommended';
+import Trending from './Trending';
+import Artists from './Artists';
+import Instrumental from './Instrumental';
 
 export default function Rightpanel() {
   function leftScroll(heading) {
     const left = document.querySelector(`.${heading}`);
-    left.scrollBy(-150, 0);
+    if(left) left.scrollBy(-150, 0);
   }
   function rightScroll(heading) {
     const right = document.querySelector(`.${heading}`);
-    right.scrollBy(150, 0);
+    if(right) right.scrollBy(150, 0);
   }
-  const recommended = 6;
   const trending = 7;
   const artists = 6;
   const instrumental = 5;
-  var recommendedsong=[];
-  for(var i=0; i<recommended; i++){
-    recommendedsong.push({Card:<Card/>,key:i});
-  }
-  var trendingsong=[];
-  for(var i=0; i<trending; i++){
-    trendingsong.push({Card:<Card/>,key:i});
-  }
-  var ArtistsPlaylist=[];
-  for(var i=0; i<artists; i++){
-    ArtistsPlaylist.push({Card:<Card/>,key:i});
-  }
-  var Instrumenatalsongs=[];
-  for(var i=0; i<instrumental; i++){
-    Instrumenatalsongs.push({Card:<Card/>,key:i});
-  }
+  
+  
+  var a=0;
+  var b=0;
+  var c=0;
+  var d=0;
   return (
     <div className='parts'>
       <div className="part1">
@@ -53,45 +46,28 @@ export default function Rightpanel() {
         <button className="left" onClick={()=>leftScroll("recommended")}>
           <img src={arrow} alt="" />
         </button>
-        <div className="scrolled recommended">
-          
-        {recommendedsong.map(i=>
-          {return <Card/>}
-        )}
-        </div>
+        <Recommended/>
           <button className="right" onClick={()=>rightScroll("recommended")}>
           <img src={arrow} alt="" /></button>
       </div>
       <div className="part2">
         <h1>Trending Songs</h1>
         <button className="left" onClick={()=>leftScroll("trending")}><img src={arrow} alt="" /></button>
-        <div className="scrolled trending">
-        {trendingsong.map(i=>
-          {return <Card/>}
-        )}  
-        </div>
+        <Trending/>
         <button className="right" onClick={()=>rightScroll("trending")}><img src={arrow} alt="" />
 </button>
       </div>
       <div className="part2">
         <h1>Artists</h1>
         <button className="left" onClick={()=>leftScroll("artist")}><img src={arrow} alt="" /></button>
-        <div className="scrolled artist">
-        {ArtistsPlaylist.map(i=>
-          {return <Card/>}
-        )}
-        </div>
+        <Artists/>
         <button className="right" onClick={()=>rightScroll("artist")}> <img src={arrow} alt="" />
 </button>
       </div>
       <div className="part2">
         <h1>Instrumental</h1>
         <button className="left" onClick={()=>leftScroll("instrumental")}><img src={arrow} alt="" /></button>
-        <div className="scrolled instrumental">
-        {Instrumenatalsongs.map(i=>
-          {return <Card/>}
-        )}
-        </div>
+        <Instrumental/>
           <button className="right" onClick={()=>rightScroll("instrumental")}><img src={arrow} alt="" /></button>
       </div>
 
