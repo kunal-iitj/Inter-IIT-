@@ -66,5 +66,5 @@ def fetchArtist(request):
 @api_view(['GET'])
 def fetchCategoryPlaylist(request):
     token = getAccessToken()
-    playlist = searchForGivenPlaylist(token, 'workout')
-    return Response(playlist)
+    response = searchForGivenPlaylist(token, 'workout')
+    return Response(response)
