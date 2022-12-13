@@ -201,7 +201,7 @@
 .scrollx{
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   /* text-align: center; */
   height: 30vh;
   width: 24vh;
@@ -221,6 +221,7 @@
   border-radius: 5px;
 }
 #followers{
+  margin-left: -1vw;
   font-size:1.7vh ;
   margin-top:0.4vh ;
   color:grey;
@@ -235,7 +236,7 @@
   overflow-y: hidden;
   overflow-x: auto;
   padding: 5px;
-  margin-left: 1vw;
+  margin-left: 0.5vw;
   -ms-overflow-style: scroll; 
   scrollbar-width: none; 
   letter-spacing: 0.1em;
@@ -264,7 +265,7 @@
 }
 .right {
   position: absolute;
-  left: 57.5vw;
+  left: 58vw;
   top: 50%;
   transform: translateY(-50%);
   background-color: inherit;
@@ -331,6 +332,7 @@ display: none;
   font-family: sans-serif;
 } */
 .artistname{
+  margin-left: -1vw;
   font-size: 20px;
   color: white;
   font-family: sans-serif;
@@ -526,7 +528,7 @@ display: none;
   left: 5vw;
   width: 12vw;
   /* top: 35vh; */
-  z-index: 2;
+  z-index: 1;
   text-align: center;
   background-color: #1d242c;
   padding: 4px;
@@ -543,7 +545,7 @@ display: none;
   width: 8vw;
   left: 3vw;
   /* top: 40vh; */
-  z-index: 2;
+  z-index: 1;
   text-align: center;
   background-color: #1d242c;
   padding: 4px;
