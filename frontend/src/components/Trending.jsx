@@ -1,7 +1,7 @@
 import React from 'react'
-import Card from './Card';
+import Card from './SongCard';
 export default function Trending() {
-    const trending = 6;
+    const trending = 4;
     var trendingsong=[];
     var a=0;
     for(var i=0; i<trending; i++){
