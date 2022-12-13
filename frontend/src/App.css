@@ -481,4 +481,75 @@ display: none;
   height: 4.5vh;
   width: 4.5vh;
 }
+.search h2{
+  margin-left: 2vw;
+}
 
+.searchbar input{
+  text-indent: 8px;
+  font-size: 2.4vh;
+  color: white;
+  height: 6vh;
+  margin-left: 2vw;
+  width: 16vw;
+  border: none;
+  border-radius: 200px;
+  background-color: #16191e;
+}
+.searchbar button{
+  position: relative;
+  left: 16vw;
+  top: -6vh;
+  height: 5vh;
+  width: 5vh;
+  border: none;
+  background-color: inherit;
+}
+.searchbar button:hover{
+  cursor: pointer;
+}
+.searchbar button img{
+  position: relative;
+  height: 5vh;
+  width: 5vh;
+  right: .7vw;
+}
+.carouselbutton{
+  width: 35vw;
+  position: relative;
+  top: 37vh;
+}
+.likebutton{
+  color: white;
+  font-size: 1.3em;
+  position: relative;
+  left: 5vw;
+  width: 12vw;
+  /* top: 35vh; */
+  z-index: 2;
+  text-align: center;
+  background-color: #1d242c;
+  padding: 4px;
+  border-radius: 200px;
+  border: none;
+}
+.likebutton:hover{
+  cursor: pointer;
+}
+.listenbutton{
+  color: white;
+  font-size: 1.3em;
+  position: relative;
+  width: 8vw;
+  left: 3vw;
+  /* top: 40vh; */
+  z-index: 2;
+  text-align: center;
+  background-color: #1d242c;
+  padding: 4px;
+  border-radius: 200px;
+  border: none;
+}
+.listenbutton:hover{
+  cursor: pointer;
+}

@@ -37,6 +37,10 @@ export default function ImageSlider() {
         };    
   return (
     <div className='imgslider'>
+        <div className='carouselbutton'>
+        <button className="listenbutton">Listen now</button>
+        <button className="likebutton">Add to Favourites</button>
+        </div>
       <Slider {...settings}>
         {images.map((item)=>(
             <div key={item.id}>
