@@ -3,9 +3,6 @@
 
 Make sure you have installed npm globally. It comes with node.js
 
-## Dependencies Used
-
-![React 18.2.0](https://img.shields.io/badge/React-18.2.0-green.svg) ![React-carousel 4.3.0](https://img.shields.io/badge/React--carousel-4.3.0-red.svg) ![React-dom 18.2.0](https://img.shields.io/badge/React--dom-18.2.0-yellowgreen.svg) ![React-slick 0.29.0](https://img.shields.io/badge/React--slick-0.29.0-blue.svg) ![slick-carousel 18.2.0](https://img.shields.io/badge/Slick--carousel-1.8.1-darkgreen.svg)
 ## Run Locally
 
 1. Fork this repository!
