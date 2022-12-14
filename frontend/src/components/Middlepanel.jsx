@@ -47,7 +47,7 @@ export default function Middlepanel() {
           <img src={arrow} alt="" /></button>
       </div>
       
-      <div className="part2">
+      <div className="newpart2">
         <h1>Recommended Songs</h1>
         <Songsrecomm/>
       </div>

@@ -6,22 +6,22 @@ export default function ImageSlider() {
     const images=[
         {
             id:1,
-            src:"https://images.unsplash.com/photo-1516981442399-a91139e20ff8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bXVzaWMlMjBhcnRpc3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            src:"https://source.unsplash.com/random/?music,artist",
             alt:"",
         },
         {
             id:2,
-            src:"https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bXVzaWMlMjBhcnRpc3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            src:"https://source.unsplash.com/random/?artist,music",
             alt:"",
         },
         {
             id:3,
-            src:"https://images.unsplash.com/photo-1525926477800-7a3b10316ac6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG11c2ljJTIwYXJ0aXN0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+            src:"https://source.unsplash.com/random/?music,song",
             alt:"",
         },
         {
             id:4,
-            src:"https://images.unsplash.com/photo-1517305542662-2dd61accb41d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG11c2ljJTIwYXJ0aXN0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+            src:"https://source.unsplash.com/random/?singer,artist",
             alt:"",
         },
         ];
