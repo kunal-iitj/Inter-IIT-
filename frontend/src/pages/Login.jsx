@@ -1,7 +1,8 @@
 import React from "react";
-
-export default function LogIN(){
+// import Home from "./../components/Home.jsx"
+export default function Login(){
     return (
+        <>
         <main className="login-page">
             <section className="login-left">
                 <div className="login-form">
@@ -23,5 +24,6 @@ export default function LogIN(){
             <section className="login-right">
             </section>
         </main>
+        </>
     )
 }
