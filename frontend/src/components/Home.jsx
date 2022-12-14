@@ -1,6 +1,7 @@
 import React from 'react'
 import Leftpanel from './Leftpanel'
 import Middlepanel from './Middlepanel'
+import Rightpanel from './Rightpanel'
 export default function Main() {
   return (
     <>
@@ -11,7 +12,7 @@ export default function Main() {
         <Middlepanel/>
       </div>
       <div className="splithome rightbox">
-        
+        <Rightpanel/>
       </div>
     </>
   )
