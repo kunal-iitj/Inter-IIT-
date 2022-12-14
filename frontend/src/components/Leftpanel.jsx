@@ -2,7 +2,6 @@ import React from 'react'
 import home from './../Images/Home.png'
 import appicon from './../Images/appicon.png'
 import playlist from './../Images/playlist.png'
-import logo from "./../Images/profile.jpg"
 import like from "./../Images/heart.png"
 import genre from "./../Images/genre.png"
 import recent from "./../Images/recents.png"
@@ -22,8 +21,8 @@ export default function Leftpanel() {
           <div className="playlist Icons"><button id="playlist"><img src={playlist} alt="" />Playlists</button></div>
           <div className="album Icons"><button id="album"><img src={genre} alt="" /> Albums</button></div>
           <div className="customise">Customise</div>
-          <div className="account Icons"><button id="account"><img src={account} alt="" /> Account</button></div>
-          <div className="settings Icons"><button id="settings"><img src={settings} alt="" /> Settings</button></div>
+          <div className="account Icons"><button id="account"><img src={account} alt="" />Account</button></div>
+          <div className="settings Icons"><button id="settings"><img src={settings} alt="" />Settings</button></div>
         </div>
     </div>
   )
