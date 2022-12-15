@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+body {
+    background-color: #1d242c;}
+
+.hlp{
+    display: inline-flexbox;
+    width:auto;
+    position:fixed;
+    color: rgba(255, 255, 255, 0.688);
+
+}
+
+.songCount{
+    font-size: 16px;
+    margin: 3vh;
+    font-weight: 300;
+}
+.app{
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    padding: 1vh 0vh 1vh 0vh;
+  }
+  .app div img{
+    height: 13vh;
+  }
+  .app{
+    display: inline-flex;
+  }
+
+  .appname{
+    position:fixed;
+    font-size: 25px;
+    color: rgb(198, 125, 66);
+  }
+  
+.menu{
+    padding-left: 3vw;
+    padding-bottom: 2vh;
+    font-size: 1vw;
+    color: #838989;
+  }
+  .library,.customise{
+    padding-top: 4vh;
+    padding-left: 3vw;
+    padding-bottom: 2vh;
+    font-size: 1vw;
+    color: #838989;
+  }
+  .hlp div button{
+    background-color: inherit;
+    border: none;
+    color: white;
+    font-size: 1.2vw;
+    color: #838989;
+    margin: 0.3vw;
+    padding: 0.4vw;
+  }
+  .hlp button:hover{
+    font-size: 1.25vw;
+    color: rgb(66, 198, 134);
+    cursor: pointer;
+  }
+  .Icons{
+    padding-left: 2vw;
+  }
+  
+
+
+
+
+
+.edit_playlist{
+    display: inline-flex;
+}
+
+.like{
+    /* display: inline; */
+    font-size: 50px;
+    margin: 1vh 0 -2vh 0;
+    font-weight: bolder;
+    color: white;
+    margin-left: 4%;
+
+}
+
+.Search_like{
+    display: block;
+    display: flex;
+    padding: 1.5vh 12vw;
+    margin-top: -1vh;
+    margin-left: -0.1vw;
+    border-radius: 1vh;
+    border: none;
+    background-color: #1d242c;
+    /* border: 1px solid #838989; */
+    color: antiquewhite;
+
+}
+
+.Search_like:active{
+    border: 1px solid #838989;
+}
+
+#likeProfile{
+    display: inline;
+    margin-left: 15vw;
+
+}
+
+
+.log-in {
+    margin-left: 400px;
+    padding: 10px 10px;
+    border-radius: 28px;
+
+}
+
+
+* {
+    margin: 0px ;
+    padding: 0;
+}
+
+nav {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    height: 65px;
+    background-color: black;
+    color: white;
+}
+
+nav ul li {
+    padding: 0 12px;
+}
+
+.brand img {
+    width: 44px;
+    padding: 0 8px;
+}
+
+
+
+.edit_playlist{
+    height: 25vh;
+    
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+
+.Song-bar{
+    display: inline-flex;
+    width: 20%;
+}
+
+.container {
+    min-height: 72vh;
+    /* background-color: black; */
+    color: white;
+    font-family: 'Varela Round', sans-serif;
+    display: flex;
+    margin: 0 30vh;
+    width: 80.5%;
+    padding: 34px;
+    background: rgba(24, 21, 21,0.8);
+}
+
+.bottom {
+    position: sticky;
+    bottom: 0;
+    height: 75px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.95;
+    width: 100%;
+
+    /* margin-left: 12vw; */
+    
+}
+
+.icons, #myProgressBar{
+    margin-left: 10vw;
+}
+
+.icons {
+    margin-top: 0.5vh;
+    align-items: center;
+
+}
+
+.icons i {
+    cursor: pointer;
+}
+
+#myProgressBar {
+    width: 40vw;
+    cursor: pointer;
+}
+
+.songItemContainer {
+    margin-top: 74px;
+}
+
+.songItem {
+    height: 50px;
+    /* display: flex; */
+    /* background-color:dimgray; */
+    background: rgba(24, 21, 21,0.8);
+    width: 100%;
+    color:aliceblue;
+    margin: 5px 0;
+    justify-content: space-between;
+    align-items: center;
+    /* border-radius: 34px; */
+    display: inline-flex;
+}
+
+.songItem:hover{
+    border: 0.5px solid grey;
+    transition: 0.15s;
+
+}
+
+
+.songItem img {
+    width: 43px;
+    margin: 0 23px;
+    border-radius: 34px;
+}
+
+.timestamp {
+    margin: 0 23px;
+}
+
+.timestamp i {
+    cursor: pointer;
+}
+
+.songInfo {
+    position: absolute;
+    font-family: 'Varela Round', sans-serif;
+    margin-left: -70vw;
+
+}
+
+.songInfo img {
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+}
+
+
+/* @media only screen and (max-width: 1100px) {
+    body {
+        background-color: red;
+    }
+} */

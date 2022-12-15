@@ -36,6 +36,7 @@ export default function Login(){
 
     
     return (
+        <>
         <main className="login-page">
             <section className="login-left">
                 <div className="login-form">
@@ -57,5 +58,6 @@ export default function Login(){
             <section className="login-right">
             </section>
         </main>
+        </>
     )
 }

@@ -6,11 +6,19 @@ import base64
 from urllib.parse import urlencode
 import environ
 
-
 # initializing the environment variables 
 
 env = environ.Env()
 environ.Env.read_env()
+
+@api_view(['GET'])
+def getRoutes(request):
+    routes = [  
+        'api/artist/',
+        'api/playlist'
+    ]
+
+    return Response(routes)
 
 
 # Create your views here.
