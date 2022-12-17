@@ -57,7 +57,7 @@
   margin: 0.3vw;
   padding: 0.4vw;
 }
-.hlp button:hover {
+.hlp button a:hover {
   font-size: 1.25vw;
   color: rgb(66, 198, 134);
   cursor: pointer;
@@ -333,7 +333,12 @@
   font-size: 1vh;
   font-family: sans-serif;
 }
-
+.Icons button a{
+  color:#777f81;
+}
+/* .Icons button a:hover{
+  color:#777f81;
+} */
 #home img {
   height: 3vh;
   padding-left: 0.1vw;
@@ -490,9 +495,9 @@
   text-align: left;
   font-size: 1em;
   color: white;
-  height: 6vh;
+  height: 6.2vh;
   margin-left: 2vw;
-  width: 13vw;
+  width: 16.2vw;
   border: none;
   padding-right:3em;
   border-radius: 200px;
@@ -790,6 +795,7 @@
   #account,
   #settings {
     font-size: 1em;
+    
   }
 
   .menu,
@@ -1158,9 +1164,18 @@ body{
 }
 .registration-link p{
   margin-top: 40px;
-  color:#424689;
+  color:#9b9dc2;
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
+}
+.registration-link p a{
+  margin-top: 40px;
+  color:#67f890;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+.registration-link p a:hover{
+  text-decoration: underline;
 }
 .login-right{
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://p2.piqsels.com/preview/894/784/975/stage-music-guitar-man.jpg); ;
@@ -1244,6 +1259,15 @@ body{
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
 }
+.login-link p a{
+  margin-top: 40px;
+  color:#67f890;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+.login-link p a:hover{
+  text-decoration: underline;
+}
 .signup-left{
   background-image:url(https://p0.piqsels.com/preview/757/822/576/art-artist-concert-energy.jpg); ;
   background-repeat: round;
@@ -1254,8 +1278,8 @@ body{
 .playlist-right{
   top: 0;
   position: absolute;
-  left: 20vw;
-  width: 80vw;
+  left: 18vw;
+  width: 82vw;
   height: 100vh;
   background-color: #16191e;
   overflow: auto;
@@ -1430,7 +1454,7 @@ nav ul li a {
   color: #e0ffff;
   transition: 0.1s;
 }
-nav ul li a:hover,
+nav ul li:hover,
 .main-text a:hover {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 3px;

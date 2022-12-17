@@ -1,6 +1,7 @@
 import React from 'react'
 import appicon from './../Images/appicon.png'
 import videoBg from  "./../Images/Video.mp4"
+import { BrowserRouter,Routes,Route,Link } from 'react-router-dom'
 export default function Generic() {
     return (
     <section id="main">
@@ -10,8 +11,8 @@ export default function Generic() {
           <a href="#">IITJ TUNES</a>
         </div>  
         <ul className="menu">
-          <li><a href="#">Login</a></li>
-          <li><a href="#">SignUp</a></li>
+          <li><Link to='/login'>Login</Link></li>
+          <li><Link to='/signup'>SignUp</Link></li>
         </ul>
       </nav>
         <video src={videoBg}  autoPlay loop muted />
@@ -20,7 +21,7 @@ export default function Generic() {
         <h3>...with IITJ TUNES</h3>
         
 
-        <a href="#" className="btn">Let's go!</a>
+        <Link to="/signup" className="btn">Let's go!</Link>
       </div>
 
     

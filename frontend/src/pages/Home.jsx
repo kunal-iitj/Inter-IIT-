@@ -1,7 +1,7 @@
 import React from 'react'
-import Leftpanel from './Leftpanel'
-import Middlepanel from './Middlepanel'
-import Rightpanel from './Rightpanel'
+import Leftpanel from '../components/Leftpanel'
+import Middlepanel from '../components/Middlepanel'
+import Rightpanel from '../components/Rightpanel'
 export default function Main() {
   return (
     <>
