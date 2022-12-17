@@ -19,9 +19,9 @@
   position: fixed;
   margin: 0;
   top: 0;
-  left: 20vw;
+  left: 18vw;
   height: 100vh;
-  width: 60vw;
+  width: 62vw;
   background-color: #16191e;
 }
 .rightbox {
@@ -124,12 +124,12 @@
 .part1 {
   display: flex;
   flex-direction: row;
-  height: 10vh;
+  height: 12vh;
   background-color: #16191e;
   position:sticky;
   z-index: 2;
   top: 0;
-  padding-bottom: 2vh;
+  /* padding-bottom: 2vh; */
   border-bottom: 1px dotted #2c2c2e;
 }
 
@@ -141,6 +141,7 @@
 }
 .newpart2 {
   padding-top: 1vh;
+  padding-left: 1vw;
   position: relative;
   height: 45vh;
   background-image: inherit;
