@@ -14,7 +14,7 @@ environ.Env.read_env()
 @api_view(['GET'])
 def getRoutes(request):
     routes = { 
-        'artist': 'http://127.0.0.1:8000/api/artist/',
+        'artist': 'http://127.0.0.1:8000/api/artists/',
         'playlist': 'http://127.0.0.1:8000/api/playlist'
     }
 
