@@ -19,9 +19,9 @@
   position: fixed;
   margin: 0;
   top: 0;
-  left: 20vw;
+  left: 18vw;
   height: 100vh;
-  width: 60vw;
+  width: 62vw;
   background-color: #16191e;
 }
 .rightbox {
@@ -57,7 +57,7 @@
   margin: 0.3vw;
   padding: 0.4vw;
 }
-.hlp button:hover {
+.hlp button a:hover {
   font-size: 1.25vw;
   color: rgb(66, 198, 134);
   cursor: pointer;
@@ -124,12 +124,12 @@
 .part1 {
   display: flex;
   flex-direction: row;
-  height: 10vh;
+  height: 12vh;
   background-color: #16191e;
-  position: sticky;
+  position:sticky;
   z-index: 2;
   top: 0;
-  padding-bottom: 2vh;
+  /* padding-bottom: 2vh; */
   border-bottom: 1px dotted #2c2c2e;
 }
 
@@ -141,6 +141,7 @@
 }
 .newpart2 {
   padding-top: 1vh;
+  padding-left: 1vw;
   position: relative;
   height: 45vh;
   background-image: inherit;
@@ -317,7 +318,7 @@
 }
 .appname {
   margin-left: -1vw;
-  font-size: 1em;
+  font-size: 1.5em;
   color: rgb(198, 125, 66);
 }
 
@@ -332,7 +333,12 @@
   font-size: 1vh;
   font-family: sans-serif;
 }
-
+.Icons button a{
+  color:#777f81;
+}
+/* .Icons button a:hover{
+  color:#777f81;
+} */
 #home img {
   height: 3vh;
   padding-left: 0.1vw;
@@ -388,6 +394,7 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
+  /* top: 1vh; */
   left: 5vw;
   width: 50vw;
   height: 45vh;
@@ -485,12 +492,14 @@
   display: flex;
   align-items: center;
   text-indent: 1em;
+  text-align: left;
   font-size: 1em;
   color: white;
-  height: 6vh;
+  height: 6.2vh;
   margin-left: 2vw;
-  width: 16vw;
+  width: 16.2vw;
   border: none;
+  padding-right:3em;
   border-radius: 200px;
   background-color: #16191e;
 }
@@ -682,10 +691,9 @@
   }
 }
 @media screen and (min-width:430px) and (max-width: 600px) and (max-height: 800px) {
-  body {
-    font-size: 5px;
+  body{
+    font-size: 2px;
   }
-  
   .appname {
     font-size: 0;
     /* height: 0vh; */
@@ -786,7 +794,8 @@
   #playlist,
   #account,
   #settings {
-    font-size: 2em;
+    font-size: 1em;
+    
   }
 
   .menu,
@@ -841,7 +850,7 @@
   }
   .songname{
     left: -8vw;
-    font-size: 3em;
+    font-size: 2em;
     width: max-content;
   }
   .singername{
@@ -883,7 +892,7 @@
 
 @media screen and (min-width:000px) and (max-width: 430px) and (max-height: 1000px) {
   body {
-    font-size: 5px;
+    font-size: 2px;
   }
   
   .appname {
@@ -986,7 +995,7 @@
   #playlist,
   #account,
   #settings {
-    font-size: 2em;
+    font-size: 1em;
   }
 
   .menu,
@@ -1155,11 +1164,395 @@ body{
 }
 .registration-link p{
   margin-top: 40px;
-  color:#424689;
+  color:#9b9dc2;
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
 }
+.registration-link p a{
+  margin-top: 40px;
+  color:#67f890;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+.registration-link p a:hover{
+  text-decoration: underline;
+}
 .login-right{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://p2.piqsels.com/preview/894/784/975/stage-music-guitar-man.jpg); ;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://p2.piqsels.com/preview/894/784/975/stage-music-guitar-man.jpg); ;
 }
 
+
+
+
+
+
+.signup-page{
+  display: flex;
+}
+.signup-left, .signup-right{
+  width: 50vw;
+  height: 100vh;
+}
+.signup-right{
+  background-color: #2d3250;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signup-form{
+  margin: 20%;
+  width: 100%;
+  background-color: #2d3250;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.signup-right form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.signup-header {
+  margin: 20px;
+}
+.signup-header h1, .signup-header h6{
+  padding: 0;
+  margin: 0;
+  font-size: 2rem;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+.signup-header h6{
+  padding: 10px 0px;
+  font-size: 1.5rem;
+  color: grey
+}
+.signup-form input{
+  padding: 20px;
+  margin: 1px;
+  background-color: #676f9d;
+  border: none;
+}
+.signup-form input::placeholder{
+  color: #424689;
+  font-size: 1rem;
+}
+.signup-form input:focus{
+  outline: none;
+  border-left: 3px solid #f9b17a;
+}
+.signup-form button{
+  margin-top: 20px;
+  font-size: 24px;
+  padding: 10px;
+  width: 40%;
+  background-color: #f9b17a;
+  color:#424689;
+  border: none;
+  
+}
+.login-link p{
+  margin-top: 40px;
+  color:#9094d9;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+.login-link p a{
+  margin-top: 40px;
+  color:#67f890;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+.login-link p a:hover{
+  text-decoration: underline;
+}
+.signup-left{
+  background-image:url(https://p0.piqsels.com/preview/757/822/576/art-artist-concert-energy.jpg); ;
+  background-repeat: round;
+}
+
+
+
+.playlist-right{
+  top: 0;
+  position: absolute;
+  left: 18vw;
+  width: 82vw;
+  height: 100vh;
+  background-color: #16191e;
+  overflow: auto;
+  color: white;
+}
+.playlist-right::-webkit-scrollbar{
+  display: none;
+}
+.playlist-main{
+  text-align: center;
+  position: relative;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  margin-left: 3vw;
+  width: 240px;
+  height: 300px;
+  padding: 2px;
+  border: none;
+  border-radius: 12px;
+  background-color: #1d242c;
+  color: black;
+  /* overflow-x: hidden; */
+}
+.playlists{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  left: 00vw;
+  width: 80vw;
+  background-color: #16191e;
+  /* overflow-y: scroll; */
+  /* -ms-overflow-style: scroll; */
+  /* scrollbar-width: none; */
+}
+.playlists::-webkit-scrollbar{
+  display: none;
+}
+.playlist-main h2{
+  font-family:sans-serif;
+  margin-top: 3px;
+}
+.playlist-main h4{
+  font-family:sans-serif;
+  /* text-align: left; */
+  margin-top: -10px;
+  padding-left: 12px;
+  opacity: 0.5;
+  width: fit-content;
+}
+#play-playlist{
+  position: relative;
+  height: 30px;
+  width: 30px;
+  left: 90px;
+  top: -40px;
+  border-radius: 200px;
+}
+#play-playlist:hover{
+  cursor: pointer;
+  height: 31px;
+  width: 31px;
+}
+
+
+.profile-pic {
+  color: transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.profile-pic input {
+  display: none;
+}
+.profile-pic img {
+  position: absolute;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  z-index: 0;
+}
+.profile-pic .-label {
+  cursor: pointer;
+  height: 200px;
+  width: 200px;
+}
+.profile-pic:hover .-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+  color: #fafafa;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 10px;
+  margin-bottom: 0;
+}
+.profile-pic span {
+  display: inline-flex;
+  padding: 0.2em;
+  height: 2em;
+}
+
+body {
+  height: 100vh;
+  background-color: #191815;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body a:hover {
+  text-decoration: none;
+}
+
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Asap", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+nav {
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0px 5%;
+  z-index: 1;
+}
+.logo{
+  position: absolute;
+  left: 0;
+  top: -15px;
+}
+.logo a {
+  position: relative;
+  top: -20px;
+  font-weight: 700;
+  color: #00c2cb;
+  font-size: 2em;
+}
+nav ul {
+  display: flex;
+  position: absolute;
+  right: 20px;
+}
+nav ul li a {
+  height: 40px;
+  line-height: 43px;
+  margin: 10px;
+  padding: 0px 30px;
+  display: flex;
+  font-size: 2em;
+  font-weight: 600;
+  color: #e0ffff;
+  transition: 0.1s;
+}
+nav ul li:hover,
+.main-text a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  color: #fff;
+}
+#main {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+}
+.main-text{
+  position: absolute;
+  left: 13%;
+  top: 42%;
+  transform: translate(-13%,-42%);
+  line-height: 0;
+}
+.main-text h2{
+  font-weight: 500;
+  font-size: 2em;
+  color: #e0ffff;
+}
+.main-text h3{
+  font-size: 4em;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+
+.main-text a{
+  width: 150px;
+  height: 40px;
+  outline: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 200;
+  padding: 1rem;
+}
+.btn{
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e0ffff;
+  font-family: "Asap", sans-serif;
+}
+#main video{
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* overflow-x: auto; */
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+.logo img{
+  margin: 0;
+  position: relative;
+  left: 1.5vw;
+  top: 10px;
+  height: 80px;
+}
+
+@media screen and (max-width:630px) {
+  body{
+    font-size: 10px;
+  }
+  .logo{
+    position: absolute;
+    left: 0;
+    top: -3px;
+  }
+  
+  .logo a {
+    position: relative;
+    top:-10px;
+    font-weight: 700;
+    color: #00c2cb;
+    font-size: 2em;
+  }
+  .logo img{
+    margin: 0;
+    position: relative;
+    left: 1.5vw;
+    top: 10px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width:600px){
+  nav ul li a {
+    height: 30px;
+    line-height: 43px;
+    margin: 10px;
+    padding: 0px 0px;
+    display: flex;
+    font-size: 1em;
+    font-weight: 600;
+    color: #e0ffff;
+    transition: 0.1s;
+  }
+}
