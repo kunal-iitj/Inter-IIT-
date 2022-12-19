@@ -5,11 +5,18 @@ import requests
 import base64
 from urllib.parse import urlencode
 import environ
+import json
 
 # initializing the environment variables 
 
 env = environ.Env()
 environ.Env.read_env()
+
+
+
+
+# Create your views here.
+
 
 @api_view(['GET'])
 def getRoutes(request):
@@ -20,8 +27,6 @@ def getRoutes(request):
 
     return Response(routes)
 
-
-# Create your views here.
 
 def getAccessToken():
     client_id = env('CLIENT_ID')
@@ -51,13 +56,13 @@ def makeSearchCall(token, searchQuery: str, filter: str):
     response = response['artists']['items'][0]
     return response
 
+
 def searchForGivenPlaylist(token, category):
     endpoint = f'https://api.spotify.com/v1/browse/categories/{category}/playlists'
     headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
     req = requests.get(endpoint, headers=headers)
     response = req.json()
     return response
-
 
 
 def fetchArtist(request, givenArtist):
@@ -72,12 +77,11 @@ def fetchArtist(request, givenArtist):
 
 @api_view(['GET'])
 def fetchRecommendedArtists(request):
-    givenListOfArtists = ['Drake', 'The Weeknd', 'Post Malone', 'Kendrick Lamar', 'Travis Scott']
-    responseList = []
-    for artist in givenListOfArtists:
+    givenArtists = ['Drake', 'Weekend']
+    responseList  = []
+    for artist in givenArtists:
         responseList.append(fetchArtist(request, artist))
     return Response(responseList)
-
 
 
 @api_view(['GET'])
