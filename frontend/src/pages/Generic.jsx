@@ -1,6 +1,6 @@
 import React from 'react'
-import appicon from './../Images/appicon.png'
-import videoBg from  "./../Images/Video.mp4"
+import appicon from '../Images/appicon.png'
+import videoBg from  "../Images/Video.mp4"
 import { BrowserRouter,Routes,Route,Link } from 'react-router-dom'
 export default function Generic() {
     return (
