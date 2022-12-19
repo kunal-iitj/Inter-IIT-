@@ -13,10 +13,10 @@ environ.Env.read_env()
 
 @api_view(['GET'])
 def getRoutes(request):
-    routes = [  
-        'api/artist/',
-        'api/playlist'
-    ]
+    routes = { 
+        'artist': 'http://127.0.0.1:8000/api/artist/',
+        'playlist': 'http://127.0.0.1:8000/api/playlist'
+    }
 
     return Response(routes)
 
@@ -60,15 +60,24 @@ def searchForGivenPlaylist(token, category):
 
 
 
-@api_view(['GET'])
-def fetchArtist(request):
+def fetchArtist(request, givenArtist):
     token = getAccessToken()
-    artist = makeSearchCall(token, 'Drake', 'artist')
+    artist = makeSearchCall(token, givenArtist, 'artist')
     required_response = dict()
     required_response['name'] = artist['name']
     required_response['images'] = artist['images']
     required_response['genres'] = artist['genres']
-    return Response(artist)
+    return required_response
+
+
+@api_view(['GET'])
+def fetchRecommendedArtists(request):
+    givenListOfArtists = ['Drake', 'The Weeknd', 'Post Malone', 'Kendrick Lamar', 'Travis Scott']
+    responseList = []
+    for artist in givenListOfArtists:
+        responseList.append(fetchArtist(request, artist))
+    return Response(responseList)
+
 
 
 @api_view(['GET'])
