@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useLoginUserMutation } from "../services/userAuthApi";
 import { storeToken, removeToken } from "../services/localStorage";
@@ -20,16 +21,21 @@ export default function Login(){
             console.log(typeof (res.error.data.errors))
             console.log(res.error)
             setServerError(res.error.data.errors)
+            let errorAlert = ""
 
             for(var key in serverError){
-            var value = serverError[key]
-            alert([key + ": " + value[0]])
+                var value = serverError[key]
+                key = (key == "non_field_errors")?"Error":key
+                errorAlert += key + ": " + value[0] + '\n'
             }
+            alert(errorAlert)
             removeToken()
 
         }
         if (res.data) {
-          console.log(res.data.token)
+        //   console.log(res.data.token)
+          console.log(res.data)
+          alert(res.data.msg)
           storeToken(res.data.token)
         }
       }
