@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import Home from "./../components/Home.jsx"
 export default function Registration(){
     return (
@@ -18,7 +19,7 @@ export default function Registration(){
                         <button type="submit">Sign Up</button>
                     </form>
                     <div className="login-link">
-                        <p>Already have an account? Login</p>
+                        <p>Already have an account? <Link to="/login">Login</Link></p>
                     </div>
                 </div>
             </section>

@@ -10,7 +10,6 @@ export default function Rightpanel() {
           <button><img src={search} alt="" /></button>
         </div>
       </div>
-      
     </div>
   )
 }
