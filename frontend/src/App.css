@@ -1573,7 +1573,7 @@ nav ul li:hover,
   align-items: center;
   text-align:center;
 }
-.question .language {
+.question button {
   height: 20vh;
   width: 20vh;
   margin-left: 10vh;
@@ -1587,7 +1587,7 @@ nav ul li:hover,
 .submit{
   padding-top: 5vh;
 }
-.submit .submitbutton{
+.submit button{
   height: 5vh;
   width: 15vh;
   background-color: rgb(253, 197, 92);
@@ -1596,7 +1596,7 @@ nav ul li:hover,
   border-radius: 5px;
   cursor: pointer;
 }
-.submit .submitbutton:hover {
+.submit button:hover {
   box-shadow: 0 2px;
   color:#16191e;
   background-color: white;
