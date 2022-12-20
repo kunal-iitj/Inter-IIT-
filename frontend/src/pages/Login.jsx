@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useLoginUserMutation } from "../services/userAuthApi";
 import { storeToken, removeToken } from "../services/localStorage";
 
 export default function Login(){
-
+    const navigate = useNavigate();
     const [serverError, setServerError] = useState({})
     const [loginUser, {isLoading}] = useLoginUserMutation()
 
@@ -35,7 +35,8 @@ export default function Login(){
         if (res.data) {
         //   console.log(res.data.token)
           console.log(res.data)
-          alert(res.data.msg)
+          navigate('/home')
+        //   alert(res.data.msg)
           storeToken(res.data.token)
         }
       }
