@@ -6,7 +6,7 @@ from user.renderers import UserRenderer
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated
-
+from user.models import User, LikedSong
 
 # Generate Tokens Manually
 def get_tokens_for_user(user):
@@ -54,6 +54,47 @@ class UserLoginView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class AddLikedSongView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        song_name = request.data.get('songName')
+
+        qset = LikedSong.objects.filter(song_name=song_name)
+
+        if len(qset) == 0:
+            songObject = LikedSong.objects.create(song_name=song_name)
+            songObject.save()
+            songObject.user.add(request.user)
+        else:
+            songObject = qset[0]
+            songObject.user.add(request.user)
+
+        liked = request.user.likedsong_set.all()
+        likedSongs = [str(song) for song in liked]
+        new_data = {'likedSongs':likedSongs}
+        return Response(new_data, status=status.HTTP_200_OK)
+
+
+class RemoveLikedSongView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        song_name = request.data.get('songName')
+        qset = LikedSong.objects.filter(song_name=song_name)
+
+        songObject = qset[0]
+        songObject.user.remove(request.user)
+
+        liked = request.user.likedsong_set.all()
+        likedSongs = [str(song) for song in liked]
+        new_data = {'likedSongs':likedSongs}
+        return Response(new_data, status=status.HTTP_200_OK)
+
+
+
 class UserProfileView(APIView):
 
     renderer_classes = [UserRenderer]
@@ -62,4 +103,10 @@ class UserProfileView(APIView):
     def get(self, request, format=None):
         serializer = UserProfileSerializer(request.user)
 
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        userObject = request.user
+        liked = userObject.likedsong_set.all()
+        likedSongs = [str(i) for i in liked]
+
+        new_data = dict(serializer.data)
+        new_data.update({'likedSongs':likedSongs})
+        return Response(new_data, status=status.HTTP_200_OK)
