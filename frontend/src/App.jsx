@@ -6,7 +6,7 @@ import Home from './components/Home';
 import Playlist from './components/Playlist';
 import Login from './pages/Login'
 import Registration from './pages/Registration';
-import Questionnaire from './components/Questionnaire';
+
 
 function App() {
   
@@ -14,7 +14,7 @@ function App() {
     <>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Questionnaire/>}/>
+      <Route path='/' element={<Home/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/signup' element={<Registration/>}/>
       <Route path='/playlist' element={<Playlist/>}/>
