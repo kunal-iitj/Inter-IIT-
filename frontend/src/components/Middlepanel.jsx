@@ -8,6 +8,7 @@ import Artists from './Artists';
 import Instrumental from './Instrumental';
 import ImageSlider from './ImageSlider';
 import Songsrecomm from './Songsrecomm';
+import { getUserName } from '../services/localStorage';
 
 
 export default function Middlepanel() {
@@ -28,7 +29,7 @@ export default function Middlepanel() {
         <button className="genres">Genres</button>
         <div className="profile">
         <img src={profile} alt="Avatar"/>
-        <div className="Username">username</div>
+        <div className="Username">{getUserName()}</div>
         </div>
         
       </div>
