@@ -150,6 +150,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 #     "http://127.0.0.1:5174",
 # ]
 
+
 # Settings added for User Authentication
 
 AUTH_USER_MODEL = 'user.User'
