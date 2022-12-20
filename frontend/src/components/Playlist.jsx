@@ -1,6 +1,7 @@
 import React from "react";
 import Leftpanel from "./Leftpanel";
-import profile from "./../Images/profile.jpg";
+import profile from "../Images/profile.jpg";
+
 import ImageSlider from "./ImageSlider";
 import Playlistcard from "./Playlistcard";
 
@@ -28,7 +29,6 @@ export default function Playlist() {
         </div>
         <div className="playlists">
             {playlist.map(i=>
-                // console.log(i['key']),
                 {return <Playlistcard key={i['key']}  nam={i['key']}/>}
             )}
             
