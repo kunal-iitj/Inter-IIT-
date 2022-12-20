@@ -3,5 +3,6 @@ from . import views
 urlpatterns = [
     path('artists/', views.fetchRecommendedArtists, name='artist'),
     path('playlist/', views.fetchCategoryPlaylist, name='playlist'),
+    path('genres/', views.fetchGenres, name='genres'),
 
 ]

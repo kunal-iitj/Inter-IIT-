@@ -6,6 +6,7 @@ import base64
 from urllib.parse import urlencode
 import environ
 import json
+import random
 
 # initializing the environment variables 
 
@@ -20,9 +21,11 @@ environ.Env.read_env()
 
 @api_view(['GET'])
 def getRoutes(request):
+    base_url = 'http://127.0.0.1:8000/'
     routes = { 
         'artist': 'http://127.0.0.1:8000/api/artists/',
-        'playlist': 'http://127.0.0.1:8000/api/playlist'
+        'playlist': 'http://127.0.0.1:8000/api/playlist',
+        'genres': f'{base_url}api/genres/'
     }
 
     return Response(routes)
@@ -89,3 +92,22 @@ def fetchCategoryPlaylist(request):
     token = getAccessToken()
     response = searchForGivenPlaylist(token, 'workout')
     return Response(response)
+
+
+@api_view(['GET'])
+def fetchGenres(request):
+    token = getAccessToken()
+    endpoint = 'https://api.spotify.com/v1/recommendations/available-genre-seeds'
+    headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
+    req = requests.get(endpoint, headers=headers)
+    response = req.json()
+    resulting_genres = response['genres']
+    required_response = random.sample(resulting_genres, 10)
+    final_response = {'genres': required_response}
+    return Response(final_response)
+
+
+@api_view(['GET'])
+def fetchPlaylists(request):
+    token = getAccessToken()
+    
