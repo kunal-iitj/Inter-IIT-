@@ -10,7 +10,7 @@ export default function Trending() {
   return (
     <div className="scrolled trending">
           {trendingsong.map(i=>
-          {return <Card key={a++}/>}
+          {return <Card number={a} key={a++}/>}
         )}  
         </div>
   )

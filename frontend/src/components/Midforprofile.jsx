@@ -1,16 +1,14 @@
 import React from 'react'
 import profile from "./../Images/profile.jpg"
-import arrow from './../Images/arrow.png'
-import Card from './ArtistCard';
-import Recommended from './Recommended';
-import Trending from './Trending';
-import Artists from './Artists';
-import Instrumental from './Instrumental';
-import ImageSlider from './ImageSlider';
+
+import Profilearea from './Profilearea';
 import Songsrecomm from './Songsrecomm';
+import Topartists from './Topartists';
 
 
-export default function Middlepanel() {
+
+
+export default function Midforprofile() {
   function leftScroll(heading) {
     const left = document.querySelector(`.${heading}`);
     if(left) left.scrollBy(-150, 0);
@@ -36,28 +34,25 @@ export default function Middlepanel() {
         <div className="albumphoto"><img src={profile} alt="" /></div>
         <div className="album_desc">Most Trending Songs| <p>#Artist Name</p></div>
       </div> */}
-      <ImageSlider/>
-      <div className="part2">
-        <h1>Recommended Artists</h1>
-        <button className="left" onClick={()=>leftScroll("recommended")}>
-          <img src={arrow} alt="" />
-        </button>
-        <Recommended/>
-          <button className="right" onClick={()=>rightScroll("recommended")}>
-          <img src={arrow} alt="" /></button>
+
+
+    <Profilearea />
+
+    
+
+      <div className="top-artists">
+        <h1>Your Top Artists</h1>
+
+        <Topartists/>
+          
       </div>
       
-      <div className="newpart2">
-        <h1>Recommended Songs</h1>
+      <div className="top-songs">
+        <h1>Your Top Songs</h1>
         <Songsrecomm/>
       </div>
 
-      <div className="part2">
-        <h1>Trending Songs</h1>
-        {/* <button className="left" onClick={()=>leftScroll("trending")}><img src={arrow} alt="" /></button> */}
-        <Trending/>
-        {/* <button className="right" onClick={()=>rightScroll("trending")}> <img src={arrow} alt="" /></button> */}
-      </div>
+      
 
       {/* <div className="part2">
         <h1>Instrumental</h1>
