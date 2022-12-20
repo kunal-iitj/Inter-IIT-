@@ -1555,7 +1555,7 @@ nav ul li:hover,
 }
 
 
-/* Niranjan  profile page */
+/* profile page css by niranjan */
 .profile-area{
   display: flex;
   background-image: linear-gradient(black, rgb(237, 180, 75));
@@ -1577,3 +1577,12 @@ nav ul li:hover,
   padding-top: 120px;
   padding-left: 30px;
 }
+
+.top-songs h1{
+  margin-left: 2vw;
+}
+
+.top-artists h1{
+  margin-left: 2vw;
+}
+  /* profile page css by niranjan */
