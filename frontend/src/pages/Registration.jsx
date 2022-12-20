@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useRegisterUserMutation } from "../services/userAuthApi";
 import { storeToken } from "../services/localStorage";
 
 // import Home from "./../components/Home.jsx"
 export default function Registration(){
-
+    const navigate = useNavigate(); 
     const [serverError, setServerError] = useState({})
     const [registerUser, {isLoading}] = useRegisterUserMutation()
 
@@ -37,7 +37,8 @@ export default function Registration(){
         }
         if (res.data) {
         //   console.log(res.data.token)
-          alert(res.data.msg)
+        //   alert(res.data.msg)
+        navigate('/home')
           storeToken(res.data.token)
         }
     }

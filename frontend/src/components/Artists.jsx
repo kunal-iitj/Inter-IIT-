@@ -10,7 +10,7 @@ export default function Artists() {
   return (
     <div className="scrolled artist">
           {artistsong.map(i=>
-          {return <Card key={a++}/>}
+          {return <Card  number={a} key={a++}/>}
         )}  
         </div>
   )

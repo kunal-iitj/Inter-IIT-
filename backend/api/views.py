@@ -6,6 +6,7 @@ import base64
 from urllib.parse import urlencode
 import environ
 import json
+import random
 
 # initializing the environment variables 
 
@@ -20,9 +21,11 @@ environ.Env.read_env()
 
 @api_view(['GET'])
 def getRoutes(request):
+    base_url = 'http://127.0.0.1:8000/'
     routes = { 
-        'artist': 'http://127.0.0.1:8000/api/artists/',
-        'playlist': 'http://127.0.0.1:8000/api/playlist'
+        'artist': f'{base_url}api/artists/',
+        'genres': f'{base_url}api/genres/',
+        'featured_playlist': f'{base_url}api/featuredPlaylist'
     }
 
     return Response(routes)
@@ -57,14 +60,6 @@ def makeSearchCall(token, searchQuery: str, filter: str):
     return response
 
 
-def searchForGivenPlaylist(token, category):
-    endpoint = f'https://api.spotify.com/v1/browse/categories/{category}/playlists'
-    headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
-    req = requests.get(endpoint, headers=headers)
-    response = req.json()
-    return response
-
-
 def fetchArtist(request, givenArtist):
     token = getAccessToken()
     artist = makeSearchCall(token, givenArtist, 'artist')
@@ -85,7 +80,23 @@ def fetchRecommendedArtists(request):
 
 
 @api_view(['GET'])
-def fetchCategoryPlaylist(request):
+def fetchGenres(request):
     token = getAccessToken()
-    response = searchForGivenPlaylist(token, 'workout')
+    endpoint = 'https://api.spotify.com/v1/recommendations/available-genre-seeds'
+    headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
+    req = requests.get(endpoint, headers=headers)
+    response = req.json()
+    resulting_genres = response['genres']
+    required_response = random.sample(resulting_genres, 10)
+    final_response = {'genres': required_response}
+    return Response(final_response)
+
+
+@api_view(['GET'])
+def fetchFeaturedPlaylists(request):
+    token = getAccessToken()
+    endpoint = 'https://api.spotify.com/v1/browse/featured-playlists'
+    headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
+    req = requests.get(endpoint, headers=headers)
+    response = req.json()
     return Response(response)

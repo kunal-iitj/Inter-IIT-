@@ -1,8 +1,9 @@
 import React from "react";
-import Leftpanel from "./Leftpanel";
-import profile from "./../Images/profile.jpg";
-import ImageSlider from "./ImageSlider";
-import Playlistcard from "./Playlistcard";
+import Leftpanel from "../components/Leftpanel";
+import profile from "../Images/profile.jpg";
+
+import ImageSlider from "../components/ImageSlider";
+import Playlistcard from "../components/Playlistcard";
 
 export default function Playlist() {
     const playlistcount = 20;
@@ -23,12 +24,11 @@ export default function Playlist() {
           <button className="genres">Genres</button>
           <div className="profile">
             <img src={profile} alt="Avatar" />
-            <div className="username">username</div>
+            <div className="Username">username</div>
           </div>
         </div>
         <div className="playlists">
             {playlist.map(i=>
-                // console.log(i['key']),
                 {return <Playlistcard key={i['key']}  nam={i['key']}/>}
             )}
             
