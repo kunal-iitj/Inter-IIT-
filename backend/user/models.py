@@ -14,5 +14,16 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
-    # def __str__(self):
-    #     return self.user_name
+    def __str__(self):
+        return self.user_name
+
+class LikedSong(models.Model):
+
+    song_name = models.CharField(max_length=50, null=False, unique=True)
+    user = models.ManyToManyField(User)
+
+    def liked_by(self):
+        return ", ".join([str(u) for u in self.user.all()])
+
+    def __str__(self):
+        return self.song_name
