@@ -3,7 +3,7 @@ import appicon from "./../Images/appicon.png";
 import {useState} from 'react'
 import FavArtists from "./FavArtist";
 import arrow from './../Images/arrow.png'
-import Recommended from "./Recommended";
+
 
 const Questionnaire = () => {
 
