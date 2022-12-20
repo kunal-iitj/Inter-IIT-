@@ -8,7 +8,7 @@ import Login from './pages/Login'
 import Registration from './pages/Registration';
 import Generic from './pages/Generic';
 import Questionnaire from './pages/Questionnaire'
-import LikePage from './components/LikePage'
+import LikePage from './pages/LikePage'
 import Profilepage from './pages/Profilepage';
 function App() {
   

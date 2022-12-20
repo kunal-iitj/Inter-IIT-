@@ -1,6 +1,6 @@
 import React from 'react'
 import LikePhoto from '../Images/LikePhoto.jpg'
-import Leftpanel from './Leftpanel';
+import Leftpanel from '../components/Leftpanel';
 function LikePage() {
   return (
     <>
