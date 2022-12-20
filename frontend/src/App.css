@@ -1585,4 +1585,52 @@ nav ul li:hover,
 .top-artists h1{
   margin-left: 2vw;
 }
-  /* profile page css by niranjan */
+/* profile page css by niranjan */
+
+
+
+/* Questionnaire css by niranjan */
+
+
+.q{
+  font-family: sans-serif;
+  color: white;
+  font-size: 1.5rem;
+}
+.question {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+}
+.question button {
+  height: 20vh;
+  width: 20vh;
+  margin-left: 10vh;
+  border-radius: 10px;
+  color:white;
+  font-weight:bold;
+  font-size: 1rem;
+  background-color: #16191e;
+}
+
+.submit{
+  padding-top: 5vh;
+}
+.submit button{
+  height: 5vh;
+  width: 15vh;
+  background-color: rgb(253, 197, 92);
+  font-family: sans-serif;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.submit button:hover {
+  box-shadow: 0 2px;
+  color:#16191e;
+  background-color: white;
+  
+}
+/* Questionnaire css by niranjan */
