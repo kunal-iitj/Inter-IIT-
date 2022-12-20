@@ -4,7 +4,7 @@ import like from "../Images/heart.png"
 import liked from "../Images/redheart.png"
 export default function Tile(props) {
   const changepic = (e)=>{
-        if(String(document.getElementById(props.number).src).slice(21,100)=="/src/Images/redheart.png")
+        if(String(document.getElementById(props.number).src).slice(-23)=="src/Images/redheart.png")
     document.getElementById(props.number).src=like;
     else{
       document.getElementById(props.number).src=liked;

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 .splithome {
   position: fixed;
   z-index: 1;
@@ -1638,8 +1641,7 @@ nav ul li:hover,
 
 
 /* CSS of Liked Page */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 
 body {
     background-color: #1d242c;
