@@ -2,7 +2,6 @@ from django.urls import path
 from . import views 
 urlpatterns = [
     path('artists/', views.fetchRecommendedArtists, name='artist'),
-    path('playlist/', views.fetchCategoryPlaylist, name='playlist'),
     path('genres/', views.fetchGenres, name='genres'),
-
+    path('featuredPlaylist', views.fetchFeaturedPlaylists, name='featured_playlist')
 ]

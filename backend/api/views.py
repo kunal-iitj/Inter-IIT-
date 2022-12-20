@@ -23,9 +23,9 @@ environ.Env.read_env()
 def getRoutes(request):
     base_url = 'http://127.0.0.1:8000/'
     routes = { 
-        'artist': 'http://127.0.0.1:8000/api/artists/',
-        'playlist': 'http://127.0.0.1:8000/api/playlist',
-        'genres': f'{base_url}api/genres/'
+        'artist': f'{base_url}api/artists/',
+        'genres': f'{base_url}api/genres/',
+        'featured_playlist': f'{base_url}api/featuredPlaylist'
     }
 
     return Response(routes)
@@ -60,14 +60,6 @@ def makeSearchCall(token, searchQuery: str, filter: str):
     return response
 
 
-def searchForGivenPlaylist(token, category):
-    endpoint = f'https://api.spotify.com/v1/browse/categories/{category}/playlists'
-    headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
-    req = requests.get(endpoint, headers=headers)
-    response = req.json()
-    return response
-
-
 def fetchArtist(request, givenArtist):
     token = getAccessToken()
     artist = makeSearchCall(token, givenArtist, 'artist')
@@ -88,13 +80,6 @@ def fetchRecommendedArtists(request):
 
 
 @api_view(['GET'])
-def fetchCategoryPlaylist(request):
-    token = getAccessToken()
-    response = searchForGivenPlaylist(token, 'workout')
-    return Response(response)
-
-
-@api_view(['GET'])
 def fetchGenres(request):
     token = getAccessToken()
     endpoint = 'https://api.spotify.com/v1/recommendations/available-genre-seeds'
@@ -108,6 +93,10 @@ def fetchGenres(request):
 
 
 @api_view(['GET'])
-def fetchPlaylists(request):
+def fetchFeaturedPlaylists(request):
     token = getAccessToken()
-    
+    endpoint = 'https://api.spotify.com/v1/browse/featured-playlists'
+    headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
+    req = requests.get(endpoint, headers=headers)
+    response = req.json()
+    return Response(response)
