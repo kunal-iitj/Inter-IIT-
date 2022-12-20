@@ -1,7 +1,7 @@
 // import Artists from "./Artists";
 import appicon from "./../Images/appicon.png";
 import {useState} from 'react'
-import FavArtists from "./FavArtist";
+import FavArtists from "../components/FavArtist";
 import arrow from './../Images/arrow.png'
 
 

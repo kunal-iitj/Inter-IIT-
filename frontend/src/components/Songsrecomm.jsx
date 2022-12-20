@@ -4,10 +4,10 @@ export default function Songsrecomm() {
   return (
     <div className='songrecomm'>
         <div className="row">
-            <Tile number='1'/>
-            <Tile number='2'/>
-            <Tile number='3'/>
-            <Tile number='4'/>
+            <Tile number={101} />
+            <Tile number={102}/>
+            <Tile number={103}/>
+            <Tile number={104}/>
         </div>
     </div>
   )

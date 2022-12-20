@@ -10,7 +10,7 @@ export default function Topartists() {
   return (
     <div className="scrolled topartists">
           {topartist.map(i=>
-          {return <Card key={a++}/>}
+          {return <Card number={a} key={a++}/>}
         )}  
         </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
-import Leftpanel from './Leftpanel'
-import Midfromprofile from './Midforprofile'
-import Rightpanel from './Rightpanel'
+import Leftpanel from '../components/Leftpanel'
+import Midforprofile from '../components/Midforprofile'
+import Rightpanel from '../components/Rightpanel'
 
 
 export default function Profilepage() {
@@ -11,7 +11,7 @@ export default function Profilepage() {
         <Leftpanel/>
       </div>
       <div className="splithome middlebox">
-        <Midfromprofile/>
+        <Midforprofile/>
       </div>
       <div className="splithome rightbox">
         <Rightpanel/>

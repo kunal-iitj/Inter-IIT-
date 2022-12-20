@@ -10,7 +10,7 @@ export default function Recommended() {
   return (
     <div className="scrolled recommended">
           {recommendedartist.map(i=>
-          {return <Card key={a++}/>}
+          {return <Card key={a++} number={a}/>}
         )}  
         </div>
   )

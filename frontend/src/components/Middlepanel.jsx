@@ -28,7 +28,7 @@ export default function Middlepanel() {
         <button className="genres">Genres</button>
         <div className="profile">
         <img src={profile} alt="Avatar"/>
-        <div className="username">username</div>
+        <div className="Username">username</div>
         </div>
         
       </div>

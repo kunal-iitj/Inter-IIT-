@@ -10,7 +10,7 @@ export default function Instrumental() {
   return (
     <div className="scrolled instrumental">
           {instrumentalsong.map(i=>
-          {return <Card key={a++}/>}
+          {return <Card number={a} key={a++}/>}
         )}  
         </div>
   )
