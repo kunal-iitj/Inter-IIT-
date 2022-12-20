@@ -1,7 +1,46 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Home from "./../components/Home.jsx"
+import { useState } from "react";
+import { useLoginUserMutation } from "../services/userAuthApi";
+import { storeToken, removeToken } from "../services/localStorage";
+
 export default function Login(){
+
+    const [serverError, setServerError] = useState({})
+    const [loginUser, {isLoading}] = useLoginUserMutation()
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = new FormData(e.currentTarget);
+        const actualData = {
+          email: data.get('email'),
+          password: data.get('password'),
+        }
+        const res = await loginUser(actualData)
+        if (res.error) {
+            console.log(typeof (res.error.data.errors))
+            console.log(res.error)
+            setServerError(res.error.data.errors)
+            let errorAlert = ""
+
+            for(var key in serverError){
+                var value = serverError[key]
+                key = (key == "non_field_errors")?"Error":key
+                errorAlert += key + ": " + value[0] + '\n'
+            }
+            alert(errorAlert)
+            removeToken()
+
+        }
+        if (res.data) {
+        //   console.log(res.data.token)
+          console.log(res.data)
+          alert(res.data.msg)
+          storeToken(res.data.token)
+        }
+      }
+
+    
     return (
         <>
         <main className="login-page">
@@ -11,9 +50,9 @@ export default function Login(){
                         <h1>LogIn</h1>
                         <h6>Get back to jamming to your favorite tunes</h6>
                     </div>
-                    <form action="">
-                        <input type="text" placeholder="Username"/>
-                        <input type="password"  placeholder="Password"/>
+                    <form action="" id="login-form" onSubmit={handleSubmit}>
+                        <input type="email" placeholder="Email" name="email"/>
+                        <input type="password"  placeholder="Password" name="password"/>
                         <button type="submit">Login</button>
                     </form>
                     <div className="registration-link">
