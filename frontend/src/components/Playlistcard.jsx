@@ -1,12 +1,11 @@
 import React from 'react'
 import play from './../Images/playdark.jpg'
-import profile from '../Images/profile.jpg'
 export default function Playlistcard(props) {
   var loadFile =(e)=>{
     var image = document.getElementById("output");
     image.src = URL.createObjectURL(event.target.files[0]);
   };
-    console.log(props.name,props.image)
+  
     console.log(props.nam);
     let colors=[
         "red",
@@ -37,10 +36,9 @@ export default function Playlistcard(props) {
         <span>Change Image</span>
       </label>
       <input id="file" type="file" onChange={()=>loadFile()}/>
-      <img src={profile} id="output" width="200" />
+      <img src={props.image}id="output" width="200" />
     </div>
-      <h2>{props.name}</h2> 
-      <span><h4>32 songs</h4></span>
+      <span><h3>{props.name}</h3></span>
       <img src={play} alt="" id="play-playlist" />
     </div>
   )

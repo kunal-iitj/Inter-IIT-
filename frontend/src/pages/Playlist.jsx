@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Leftpanel from "../components/Leftpanel";
 import profile from "../Images/profile.jpg";
+
 import ImageSlider from "../components/ImageSlider";
 import Playlistcard from "../components/Playlistcard";
-import { usePlaylistQuery ,useArtistsQuery,useGenresQuery} from '../services/dataapi.js'
-
-
-
 
 export default function Playlist() {
 
