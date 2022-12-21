@@ -1,4 +1,5 @@
 import React from 'react'
+import { getUserName } from '../services/localStorage';
 import profile from "./../Images/profile.jpg"
 
 import Profilearea from './Profilearea';
@@ -26,7 +27,7 @@ export default function Midforprofile() {
         <button className="genres">Genres</button>
         <div className="profile">
         <img src={profile} alt="Avatar"/>
-        <div className="Username">username</div>
+        <div className="Username">{getUserName()}</div>
         </div>
         
       </div>

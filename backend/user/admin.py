@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from user.models import User
+from user.models import User, Song
 
 
 class UserModelAdmin(BaseUserAdmin):
@@ -29,3 +29,9 @@ class UserModelAdmin(BaseUserAdmin):
 
 
 admin.site.register(User, UserModelAdmin)
+
+# @admin.register(Song)
+class SongAdmin(admin.ModelAdmin):
+    list_display=['songId', 'title', 'artist', 'genres', 'language', 'liked_by']
+
+admin.site.register(Song, SongAdmin)
