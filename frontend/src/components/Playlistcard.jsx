@@ -38,7 +38,7 @@ export default function Playlistcard(props) {
       <input id="file" type="file" onChange={()=>loadFile()}/>
       <img src={props.image}id="output" width="200" />
     </div>
-      <span><h3>{props.name}</h3></span>
+      <span><h3 style={{color:"#bfbfbf"}}>{props.name}</h3></span>
       <img src={play} alt="" id="play-playlist" />
     </div>
   )
