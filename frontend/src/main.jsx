@@ -10,9 +10,9 @@ import { DataApi } from './services/dataapi'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <ApiProvider api={DataApi}>
+      {/* <ApiProvider api={DataApi}> */}
     <App />
-    </ApiProvider>
+    {/* </ApiProvider> */}
     </Provider>
   </React.StrictMode>
 )
