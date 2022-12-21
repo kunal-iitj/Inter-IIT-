@@ -36,9 +36,8 @@ export default function Playlistcard(props) {
         <span>Change Image</span>
       </label>
       <input id="file" type="file" onChange={()=>loadFile()}/>
-      <img src="https://cdn.pixabay.com/photo/2017/08/06/21/01/louvre-2596278_960_720.jpg" id="output" width="200" />
+      <img src={props.image}id="output" width="200" />
     </div>
-      <h2>Playlist Name</h2> 
       <span><h4>32 songs</h4></span>
       <img src={play} alt="" id="play-playlist" />
     </div>
