@@ -6,9 +6,11 @@ import Middlepanel from '../components/Middlepanel'
 import Rightpanel from '../components/Rightpanel'
 import profile from '../Images/profile.jpg'
 import { getUserName } from '../services/localStorage';
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Albums() {
+  const navigate = useNavigate()
   const [Artists, setArtist] = useState([])
   const fetchPlaylists = async () => {
     const response = await fetch(
@@ -36,9 +38,9 @@ export default function Albums() {
         </div>
       <div className="album-right">
         <div className="part1">
-            <button className="albums">Albums</button>
-            <button className="playlisttop">Playlist</button>
-            <button className="genres">Genres</button>
+            <button className="albums" onClick={()=>navigate('/albums')}>Albums</button>
+            <button className="playlisttop" onClick={()=>navigate('/playlist')}>Playlist</button>
+            <button className="genres" onClick={()=>navigate('/genres')}>Genres</button>
             <div className="profile">
             <img src={profile} alt="Avatar"/>
             <div className="Username">{getUserName()}</div>

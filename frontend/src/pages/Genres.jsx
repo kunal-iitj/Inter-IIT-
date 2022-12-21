@@ -6,9 +6,11 @@ import profile from '../Images/profile.jpg'
 import { getUserName } from '../services/localStorage';
 
 import { usePlaylistQuery ,useArtistsQuery,useGenresQuery} from '../services/dataapi.js'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Genres() {
+  const navigate = useNavigate()
   const [Genres, setGenres] = useState([])
   const fetchPlaylists = async () => {
     const response = await fetch(
@@ -35,9 +37,9 @@ export default function Genres() {
         </div>
       <div className="album-right">
         <div className="part1">
-            <button className="albums">Albums</button>
-            <button className="playlisttop">Playlist</button>
-            <button className="genres">Genres</button>
+        <button className="albums" onClick={()=>navigate('/albums')}>Albums</button>
+            <button className="playlisttop" onClick={()=>navigate('/playlist')}>Playlist</button>
+            <button className="genres" onClick={()=>navigate('/genres')}>Genres</button>
             <div className="profile">
             <img src={profile} alt="Avatar"/>
             <div className="Username">{getUserName()}</div>
