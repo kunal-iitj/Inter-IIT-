@@ -99,15 +99,24 @@ def fetchFeaturedPlaylists(request):
     endpoint = 'https://api.spotify.com/v1/browse/featured-playlists'
     headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
     req = requests.get(endpoint, headers=headers)
-    response = req.json()
+    res = req.json()
+    givenPlaylists = res['playlists']['items']
+    response = []
+    for playlist in givenPlaylists: 
+        response.append({'name': playlist['name'], 'image': playlist['images'][0]['url']})
     return Response(response)
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def fetchSong(request):
     token = getAccessToken()
-    song = makeSearchCall(token, 'Shape of You', 'track')
+    searchQuery = request.body.decode('utf-8')
+    print(searchQuery)
+    searchQuery = json.loads(searchQuery)
+    searchQuery = searchQuery['search']
+    song = makeSearchCall(token, searchQuery, 'track')
     response = dict()
-    response['images'] = song['album']['images'][1]
+    response['images'] = song['album']['images'][1]['url']
     response['artist'] = song['album']['artists'][0]['name']
+    response['name'] = song['name']
     return Response(response)

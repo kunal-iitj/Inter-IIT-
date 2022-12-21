@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Leftpanel from "../components/Leftpanel";
 import profile from "../Images/profile.jpg";
 import ImageSlider from "../components/ImageSlider";
@@ -9,24 +9,28 @@ import { usePlaylistQuery ,useArtistsQuery,useGenresQuery} from '../services/dat
 
 
 export default function Playlist() {
-  const{data} = usePlaylistQuery();
-  // console.log(data)
-  let items=[]
-  if (data){
-      let {items} = data.playlists;
-      // console.log(items[0].name)
-      console.log(items[0].images[0].url)
-      const playlistcount = items.length;
-      var playlist=[];
-      var a=0;
-      for(var i=0; i<playlistcount; i++){
-          playlist.push({card:<Playlistcard/>,"key":i});
+
+  const [playlists, setPlaylists] = useState([])
+  const fetchPlaylists = async () => {
+    const response = await fetch(
+      'http://127.0.0.1:8000/api/featuredPlaylist',
+      {
+        method: 'GET', 
+        headers: {
+          'Content-Type': 'application/json',
         }
+      }
+    )
+    const data = await response.json()
+    setPlaylists(data)
   }
 
+  useEffect(() => {
+    fetchPlaylists(), 
+    console.log(playlists);
+  }, [])
 
-
-  return data? (
+  return (
     <div className="playlist-page">
       <div className="splithome leftbox">
         <Leftpanel />
@@ -42,12 +46,12 @@ export default function Playlist() {
           </div>
         </div>
         <div className="playlists">
-            {items.map(i=>
-                {return <Playlistcard key={i['key']}  nam={i['key']} name={i.name} image={i.image[0].url}/>}
+            {playlists.map(i=>
+                {return <Playlistcard  image = {i.image} name={i.name} nam={i['key']}/>}
             )}
             
         </div>
       </div>
     </div>
-  ):<div>hello</div>;
+  );
 }

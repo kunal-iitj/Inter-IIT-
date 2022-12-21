@@ -1,15 +1,29 @@
 import React, {useState} from 'react'
-import searchicon from './../Images/searchcolor.png'
+import search from './../Images/searchcolor.png'
+import SearchCard from './SearchCard';
+
 export default function Rightpanel() {
 
   const [search, setSearch] = useState('')
+  const [data, setData] = useState({})
   const handleChange = (event) =>{
     setSearch(event.target.value)
-    console.log(search);
   }
 
   const handleSubmit = async ()=> {
-    const response = await fetch('')
+    const searchQuery = {search: search}
+    const response = await fetch(
+      'http://127.0.0.1:8000/api/search', 
+      {
+        method: 'POST',
+        body: JSON.stringify(searchQuery), 
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
+    const data = await response.json()
+    setData(data)
   }
 
   return (
@@ -20,6 +34,7 @@ export default function Rightpanel() {
           <input type="text" placeholder='Search' id="search" value={search} onChange={handleChange}/>
           <button><img src={search} alt="" /></button>
         </div>
+        <SearchCard name={data.name} image={data.images} artist={data.artist}/>
       </div>
     </div>
   )

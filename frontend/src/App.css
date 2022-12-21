@@ -1875,3 +1875,25 @@ body {
 
 /* CSS by Yogesh */
 
+.search-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.search-card-image{
+  width: 90%;  
+}
+
+
+.search-card h3{
+  padding: 0px;
+  margin: 0px;
+}
+
+
+.search-card .headers{
+  padding: 20px 0px;
+}

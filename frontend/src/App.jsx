@@ -19,8 +19,7 @@ function App() {
     <>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Check/>}/>
-      {/* <Route path='/' element={<Generic />}/> */}
+      <Route path='/' element={<Generic />}/>
       <Route path='/home' element={<Home/>}/>
       <Route path='/question' element={<Questionnaire/>}/>
       <Route path='/login' element={<Login/>}/>

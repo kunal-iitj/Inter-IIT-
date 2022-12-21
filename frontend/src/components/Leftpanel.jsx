@@ -7,10 +7,15 @@ import genre from "./../Images/genre.png"
 import recent from "./../Images/recents.png"
 import account from "./../Images/account.png"
 import logout from "./../Images/logout.png"
-import { Link} from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
+import { removeLikedSongs, removeToken, removeUserName } from '../services/localStorage'
 export default function Leftpanel() {
+  const navigate = useNavigate()
   const logoutfunc=(e)=>{
-
+    removeLikedSongs()
+    removeUserName()
+    removeToken()
+    navigate('/')
   }
   return (
     <div>
