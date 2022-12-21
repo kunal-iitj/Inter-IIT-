@@ -108,6 +108,6 @@ def fetchSong(request):
     token = getAccessToken()
     song = makeSearchCall(token, 'Shape of You', 'track')
     response = dict()
-    response['images'] = song['album']['images'][0]
+    response['images'] = song['album']['images'][1]
     response['artist'] = song['album']['artists'][0]['name']
     return Response(response)
