@@ -1,6 +1,8 @@
 # Backend
 
-1.Make sure you have python3 installed on your system.
+1. Make sure you have python3 installed on your system.
+2. Make a .env file in the backend folder 
+2. Copy the contents of the .env.example file to the .env file 
 
 To check this
 
