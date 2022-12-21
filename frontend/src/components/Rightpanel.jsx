@@ -8,7 +8,9 @@ export default function Rightpanel() {
     console.log(search);
   }
 
-
+  const handleSubmit = async ()=> {
+    const response = await fetch('')
+  }
 
   return (
     <div>
@@ -16,7 +18,7 @@ export default function Rightpanel() {
         <label htmlFor="search"><h2>Quick Search</h2></label>
         <div className="searchbar">
           <input type="text" placeholder='Search' id="search" value={search} onChange={handleChange}/>
-          <button type='submit' onSubmit={handleSubmit}>Click</button>
+          <button type='submit' onClick={handleSubmit}>Click</button>
         </div>
       </div>
     </div>
