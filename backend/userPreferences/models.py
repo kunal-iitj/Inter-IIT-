@@ -15,6 +15,6 @@ class UserPreference(models.Model):
      )
     languages = models.TextField(choices= LANGUAGE_CHOICES)
     genres = models.TextField(choices=GENRES_CHOICES)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    
+
+
 

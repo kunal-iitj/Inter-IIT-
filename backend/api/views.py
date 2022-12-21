@@ -107,10 +107,14 @@ def fetchFeaturedPlaylists(request):
     return Response(response)
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def fetchSong(request):
     token = getAccessToken()
-    song = makeSearchCall(token, 'Shape of You', 'track')
+    searchQuery = request.body.decode('utf-8')
+    print(searchQuery)
+    searchQuery = json.loads(searchQuery)
+    searchQuery = searchQuery['search']
+    song = makeSearchCall(token, searchQuery, 'track')
     response = dict()
     response['images'] = song['album']['images'][1]['url']
     response['artist'] = song['album']['artists'][0]['name']

@@ -8,11 +8,20 @@ export default function Rightpanel() {
   const [data, setData] = useState({})
   const handleChange = (event) =>{
     setSearch(event.target.value)
-    console.log(search);
   }
 
   const handleSubmit = async ()=> {
-    const response = await fetch('http://127.0.0.1:8000/api/search', {method: 'GET', headers: {'Content-Type': 'application/json'}})
+    const searchQuery = {search: search}
+    const response = await fetch(
+      'http://127.0.0.1:8000/api/search', 
+      {
+        method: 'POST',
+        body: JSON.stringify(searchQuery), 
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
     const data = await response.json()
     setData(data)
   }
