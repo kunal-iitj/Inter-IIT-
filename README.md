@@ -15,7 +15,7 @@ In case you want to run the projects locally, refer to the respective Repositori
 ## Built With
 
 * [React.js](https://reactjs.org/) - Javascript library used
-* CSS3
+* [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS) -Used for styling the UI
 * [Django](https://www.djangoproject.com/) - Python framework used
 
 ## Collaborators
