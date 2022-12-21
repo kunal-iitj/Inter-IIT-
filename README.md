@@ -35,7 +35,7 @@ Clone the project
   npm run dev
 ```
 5. The project should now be running locally, and the interface is should be as follows:
-![UI screenshot](frontend/src/Images/Homepagess.png)
+![UI screenshot](/frontend/src/Images/Homepagess.png)
 
 ### Back-end:
 1.Make sure you have python3 installed on your system.
