@@ -3,6 +3,8 @@ import { useState,useEffect } from 'react'
 import Leftpanel from '../components/Leftpanel'
 import Tile3Genres from '../components/Tile3'
 import profile from '../Images/profile.jpg'
+import { getUserName } from '../services/localStorage';
+
 import { usePlaylistQuery ,useArtistsQuery,useGenresQuery} from '../services/dataapi.js'
 
 
@@ -38,7 +40,7 @@ export default function Genres() {
             <button className="genres">Genres</button>
             <div className="profile">
             <img src={profile} alt="Avatar"/>
-            <div className="Username">username</div>
+            <div className="Username">{getUserName()}</div>
             </div>
         </div>
 

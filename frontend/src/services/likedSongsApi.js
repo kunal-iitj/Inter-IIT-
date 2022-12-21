@@ -10,7 +10,8 @@ export const likedSongsApi = createApi({
         return {
           url: 'addlikedsong/',
           method: 'POST',
-          body: {songName: songName},
+          body: {songName: songName},  
+          /*CHANGES TO BE DONE LATER.............SONGNAME WILL BE CHANGED TO SONGID.....................*/
         //   body: user,
           headers: {
             // 'Content-type': 'application/json',

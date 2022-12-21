@@ -4,6 +4,7 @@ import profile from "../Images/profile.jpg";
 
 import ImageSlider from "../components/ImageSlider";
 import Playlistcard from "../components/Playlistcard";
+import { getUserName } from "../services/localStorage";
 
 export default function Playlist() {
 
@@ -39,7 +40,7 @@ export default function Playlist() {
           <button className="genres">Genres</button>
           <div className="profile">
             <img src={profile} alt="Avatar" />
-            <div className="Username">username</div>
+            <div className="Username">{getUserName()}</div>
           </div>
         </div>
         <div className="playlists">
