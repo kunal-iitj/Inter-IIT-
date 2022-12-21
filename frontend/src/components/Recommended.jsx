@@ -1,5 +1,8 @@
 import React from 'react'
-import Card from './ArtistCard';
+import Card from './ArtistCard'
+
+
+
 export default function Recommended() {
     const recommended = 6;
     var recommendedartist=[];

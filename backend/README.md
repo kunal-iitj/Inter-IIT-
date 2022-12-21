@@ -1,65 +1,41 @@
 # Backend
 
-Make sure you have python3 installed on your system
+1.Make sure you have python3 installed on your system.
 
 To check this
 
-
-## Run
+#### Run
 ```bash
   python --version
 ```
-### you should get like this python with a version
+##### you should get like this python with a version
 ```bash
   Python 3.10.5
 ```
 
-#### if you are not getting this then install python and add it to environment variables
-
-
-## Run Locally
-
-1. Fork this repository!
-
-2. Clone this repository and setup a remote to the original repository.
-
-#### or else
-
-Clone the project
-
-```bash
-  git clone https://github.com/kunal-iitj/Inter-IIT-Project.git
-```
-
-## Starting Server
-
-Install virtualenv in case you haven't
+##### if you are not getting this then install python and add it to environment variables
+2. Install virtualenv in case you haven't
 
 ```bash
   pip install virtualenv 
 ```
-
-Activate the virtual environment
+3. Activate the virtual environment
 
 ```bash
   virtualenv venv
   venv\scripts\activate
 ```
-
-Install the necessary python packages
+4. Install the necessary python packages
 
 ```bash
   pip install -r requirements.txt 
 ```
-
-Go to the project directory
+5. Go to the project directory
 
 ```bash
   cd backend
 ```
-
-
-Migrate the models
+6. Migrate the models
 
 ```bash
   python manage.py makemigrations
@@ -68,70 +44,7 @@ Migrate the models
 ```bash
   python manage.py migrate
 ```
-
-Run the server 
-
-```bash
-  python manage.py runserver 
-```
-
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-## Run Locally
-
-1. Fork this repository!
-
-2. Clone this repository and setup a remote to the original repository.
-
-#### or else
-
-Clone the project
-
-```bash
-  git clone https://github.com/kunal-iitj/Inter-IIT-Project.git
-```
-
-## Starting Server
-
-Install virtualenv in case you haven't
-
-```bash
-  pip install virtualenv 
-```
-
-Activate the virtual environment
-
-```bash
-  virtualenv venv
-  venv\scripts\activate
-```
-
-Install the necessary python packages
-
-```bash
-  pip install -r requirements.txt 
-```
-
-Go to the project directory
-
-```bash
-  cd backend
-```
-
-
-Migrate the models
-
-```bash
-  python manage.py makemigrations
-```
-
-```bash
-  python manage.py migrate
-```
-
-Run the server 
+7. Run the server 
 
 ```bash
   python manage.py runserver 

@@ -25,7 +25,8 @@ def getRoutes(request):
     routes = { 
         'artist': f'{base_url}api/artists/',
         'genres': f'{base_url}api/genres/',
-        'featured_playlist': f'{base_url}api/featuredPlaylist'
+        'featured_playlist': f'{base_url}api/featuredPlaylist',
+        'songs': f'{base_url}api/search'
     }
 
     return Response(routes)
@@ -56,7 +57,7 @@ def makeSearchCall(token, searchQuery: str, filter: str):
     lookup_url = f'{endpoint}?{data}'
     req = requests.get(lookup_url, headers=headers)
     response = req.json()
-    response = response['artists']['items'][0]
+    response = response[f'{filter}s']['items'][0]
     return response
 
 
@@ -98,5 +99,20 @@ def fetchFeaturedPlaylists(request):
     endpoint = 'https://api.spotify.com/v1/browse/featured-playlists'
     headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
     req = requests.get(endpoint, headers=headers)
-    response = req.json()
+    res = req.json()
+    givenPlaylists = res['playlists']['items']
+    response = []
+    for playlist in givenPlaylists: 
+        response.append({'name': playlist['name'], 'image': playlist['images'][0]['url']})
+    return Response(response)
+
+
+@api_view(['GET'])
+def fetchSong(request):
+    token = getAccessToken()
+    song = makeSearchCall(token, 'Shape of You', 'track')
+    response = dict()
+    response['images'] = song['album']['images'][1]['url']
+    response['artist'] = song['album']['artists'][0]['name']
+    response['name'] = song['name']
     return Response(response)

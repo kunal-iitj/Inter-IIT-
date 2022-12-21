@@ -1,39 +1,23 @@
 
 # Frontend
 
-Make sure you have installed npm globally. It comes with node.js
-
-## Run Locally
-
-1. Fork this repository!
-
-2. Clone this repository and setup a remote to the original repository.
-
-#### or else
-
-Clone the project
-
-```bash
-  git clone https://github.com/kunal-iitj/Inter-IIT-Project.git
-```
-
-## Starting Server
-Go to the project directory
+1. Make sure you have installed npm globally. It comes with node.js.
+2. Open the terminal and go to the project directory
 
 ```bash
   cd frontend
 ```
-Install dependencies
+3. Install dependencies
 
 ```bash
   npm i
 ```
-
-Start the server
+4. Start the server
 
 ```bash
   npm run dev
 ```
+5. The project should now be running locally!
 
 
 ## License
