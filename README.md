@@ -35,7 +35,7 @@ Clone the project
   npm run dev
 ```
 5. The project should now be running locally, and the interface is should be as follows:
-![UI screenshot](https://github.com/kunal-iitj/Inter-IIT-Project/blob/main/frontend/src/Images/Homepagess.png)
+![UI screenshot](https://github.com/kunal-iitj/Inter-IIT-Project/blob/main/frontend/src/Images/Homepagess.png?raw=true)
 
 ### Back-end:
 1.Make sure you have python3 installed on your system.
