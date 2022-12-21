@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState,useEffect } from 'react'
 import Leftpanel from '../components/Leftpanel'
 import Tile3Genres from '../components/Tile3'
 import profile from '../Images/profile.jpg'
@@ -6,11 +7,24 @@ import { usePlaylistQuery ,useArtistsQuery,useGenresQuery} from '../services/dat
 
 
 export default function Genres() {
-  const {data} = useGenresQuery();
-  if(data){
-    const item = data.genres
-    console.log(item)
+  const [Genres, setGenres] = useState([])
+  const fetchPlaylists = async () => {
+    const response = await fetch(
+      'http://127.0.0.1:8000/api/genres',
+      {
+        method: 'GET', 
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+    )
+    const data = await response.json()
+    setGenres(data.genres)
   }
+  console.log(Genres);
+  useEffect(() => {
+    fetchPlaylists()
+  }, [])
   return (
     <>
       <div>
@@ -29,13 +43,10 @@ export default function Genres() {
         </div>
 
         <div className="album-part">
-            <Tile3Genres name = "Genres"/>
-            <Tile3Genres name = "Genres"/>
-            <Tile3Genres name = "Genres"/>
-            <Tile3Genres name = "Genres"/>
-            <Tile3Genres name = "Genres"/>
-            <Tile3Genres name = "Genres"/>
-            <Tile3Genres name = "Genres"/>
+        {Genres.map(i=>{
+          return <Tile3Genres name={i} />
+        })
+          }
             
         </div>
       </div>
