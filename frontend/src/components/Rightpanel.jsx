@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import search from './../Images/searchcolor.png'
+import searchicon from './../Images/searchcolor.png'
 export default function Rightpanel() {
 
   const [search, setSearch] = useState('')
@@ -13,7 +13,7 @@ export default function Rightpanel() {
         <label htmlFor="search"><h2>Quick Search</h2></label>
         <div className="searchbar">
           <input type="text" placeholder='Search' id="search" value={search} onChange={handleChange}/>
-          <button><img src={search} alt="" /></button>
+          <button><img src={searchicon} alt="" /></button>
         </div>
       </div>
     </div>
