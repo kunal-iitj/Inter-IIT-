@@ -23,6 +23,8 @@ To check this
 
 2. Clone this repository and setup a remote to the original repository.
 
+3. Make an .evn file in the backend folder of this folder and copy the contents of the .env.example file
+
 #### or else
 
 Clone the project
