@@ -20,7 +20,7 @@ export default function Leftpanel() {
           <div className="home Icons"><button id="home"><img src={home} alt="" /><Link to="/home"> Home</Link></button></div>
           <div className="genre Icons"><button id="genre"><img src={genre} alt="" /> <Link to="/genres">Genres</Link></button></div>
           <div className="library">Library</div>
-          <div className="recent Icons"><button id="recent"><img src={recent} alt="" /><Link to="/recents">Recents</Link></button></div>
+          {/* <div className="recent Icons"><button id="recent"><img src={recent} alt="" /><Link to="/recents">Recents</Link></button></div> */}
           <div className="liked Icons"><button id="liked"><img src={like} alt="" /><Link to="/likepage">Liked Songs</Link></button></div>
           <div className="playlist Icons"><button id="playlist"><img src={playlist} alt="" /><Link to="/playlist">Playlists</Link></button></div>
           <div className="album Icons"><button id="album"><img src={genre} alt="" /> <Link to="/albums">Albums</Link></button></div>

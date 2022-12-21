@@ -12,13 +12,15 @@ import LikePage from './pages/LikePage'
 import Profilepage from './pages/Profilepage';
 import Albums from './pages/Albums';
 import Genres from './pages/Genres';
+import Check from './pages/Check';
 function App() {
   
   return (
     <>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Generic />}/> 
+      <Route path='/' element={<Check/>}/>
+      {/* <Route path='/' element={<Generic />}/> */}
       <Route path='/home' element={<Home/>}/>
       <Route path='/question' element={<Questionnaire/>}/>
       <Route path='/login' element={<Login/>}/>

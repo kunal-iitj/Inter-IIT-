@@ -2,8 +2,15 @@ import React from 'react'
 import Leftpanel from '../components/Leftpanel'
 import Tile3Genres from '../components/Tile3'
 import profile from '../Images/profile.jpg'
+import { usePlaylistQuery ,useArtistsQuery,useGenresQuery} from '../services/dataapi.js'
+
 
 export default function Genres() {
+  const {data} = useGenresQuery();
+  if(data){
+    const item = data.genres
+    console.log(item)
+  }
   return (
     <>
       <div>

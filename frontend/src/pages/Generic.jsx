@@ -2,7 +2,9 @@ import React from 'react'
 import appicon from '../Images/appicon.png'
 import videoBg from  "../Images/video.mp4"
 import { BrowserRouter,Routes,Route,Link } from 'react-router-dom'
+
 export default function Generic() {
+  
     return (
     <section id="main">
     <nav>

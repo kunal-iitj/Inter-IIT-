@@ -5,13 +5,13 @@ export const userAuthApi = createApi({
   reducerPath: 'userAuthApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://127.0.0.1:8000/auth/' }),
   endpoints: (builder) => ({
-    registerUser: builder.mutation({
+    registerUser: builder.query({
       query: (user) => {
         return {
           url: 'register/',
           method: 'POST',
           body: user,
-          headers: {
+          headers: { 
             'Content-type': 'application/json',
           }
         }

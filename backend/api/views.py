@@ -25,7 +25,8 @@ def getRoutes(request):
     routes = { 
         'artist': f'{base_url}api/artists/',
         'genres': f'{base_url}api/genres/',
-        'featured_playlist': f'{base_url}api/featuredPlaylist'
+        'featured_playlist': f'{base_url}api/featuredPlaylist',
+        'songs': f'{base_url}api/search'
     }
 
     return Response(routes)
@@ -56,7 +57,7 @@ def makeSearchCall(token, searchQuery: str, filter: str):
     lookup_url = f'{endpoint}?{data}'
     req = requests.get(lookup_url, headers=headers)
     response = req.json()
-    response = response['artists']['items'][0]
+    response = response[f'{filter}s']['items'][0]
     return response
 
 
@@ -99,4 +100,14 @@ def fetchFeaturedPlaylists(request):
     headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
     req = requests.get(endpoint, headers=headers)
     response = req.json()
+    return Response(response)
+
+
+@api_view(['GET'])
+def fetchSong(request):
+    token = getAccessToken()
+    song = makeSearchCall(token, 'Shape of You', 'track')
+    response = dict()
+    response['images'] = song['album']['images'][1]
+    response['artist'] = song['album']['artists'][0]['name']
     return Response(response)
