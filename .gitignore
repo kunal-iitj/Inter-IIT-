@@ -3,4 +3,3 @@ venv
 backend\api\__pycache__\.
 backend\user\__pycache__\.
 backend\backend\__pycache__\.
-db.sqlite3
