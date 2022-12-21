@@ -6,7 +6,7 @@ from user.renderers import UserRenderer
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated
-from user.models import User, LikedSong
+from user.models import User, Song
 
 # Generate Tokens Manually
 def get_tokens_for_user(user):
@@ -59,19 +59,29 @@ class AddLikedSongView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        song_name = request.data.get('songName')
+        songId = request.data.get('songId')
+        title = request.data.get('title')
 
-        qset = LikedSong.objects.filter(song_name=song_name)
+        qset = Song.objects.filter(songId=str(songId))
+
+        if (not qset) or (len(qset) == 0):
+            qset = Song.objects.filter(title=title)
 
         if len(qset) == 0:
-            songObject = LikedSong.objects.create(song_name=song_name)
+            lastId = Song.objects.last().songId
+            songId = str(int(lastId) + 1)
+            title = request.data.get('title')
+            artist = request.data.get('artist')
+            genres = request.data.get('genres')
+            language = request.data.get('language')
+            songObject = Song.objects.create(songId=songId, title=title, artist=artist, genres=genres, language=language)
             songObject.save()
             songObject.user.add(request.user)
         else:
             songObject = qset[0]
             songObject.user.add(request.user)
 
-        liked = request.user.likedsong_set.all()
+        liked = request.user.song_set.all()
         likedSongs = [str(song) for song in liked]
         new_data = {'likedSongs':likedSongs}
         return Response(new_data, status=status.HTTP_200_OK)
@@ -82,13 +92,13 @@ class RemoveLikedSongView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        song_name = request.data.get('songName')
-        qset = LikedSong.objects.filter(song_name=song_name)
+        songId = request.data.get('songId')
+        qset = Song.objects.filter(songId=str(songId))
 
         songObject = qset[0]
         songObject.user.remove(request.user)
 
-        liked = request.user.likedsong_set.all()
+        liked = request.user.song_set.all()
         likedSongs = [str(song) for song in liked]
         new_data = {'likedSongs':likedSongs}
         return Response(new_data, status=status.HTTP_200_OK)
@@ -104,7 +114,7 @@ class UserProfileView(APIView):
         serializer = UserProfileSerializer(request.user)
 
         userObject = request.user
-        liked = userObject.likedsong_set.all()
+        liked = userObject.song_set.all()
         likedSongs = [str(i) for i in liked]
 
         new_data = dict(serializer.data)

@@ -17,13 +17,17 @@ class User(AbstractUser):
     def __str__(self):
         return self.user_name
 
-class LikedSong(models.Model):
+class Song(models.Model):
 
-    song_name = models.CharField(max_length=50, null=False, unique=True)
+    songId = models.CharField(max_length=10, null=False, unique=True)
+    title = models.CharField(max_length=255, null=False)
+    artist = models.CharField(max_length=50)
+    genres = models.CharField(max_length=50)
+    language = models.CharField(max_length=50)
     user = models.ManyToManyField(User)
 
     def liked_by(self):
         return ", ".join([str(u) for u in self.user.all()])
 
     def __str__(self):
-        return self.song_name
+        return self.title
