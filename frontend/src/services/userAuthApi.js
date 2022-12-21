@@ -29,12 +29,13 @@ export const userAuthApi = createApi({
         }
       }
     }),
-    getLoggedUser: builder.query({
+    profile: builder.query({
       query: (access_token) => {
         return {
           url: 'profile/',
           method: 'GET',
           headers: {
+            'Content-type': 'application/json',
             'authorization': `Bearer ${access_token}`,
           }
         }
@@ -43,4 +44,4 @@ export const userAuthApi = createApi({
   }),
 })
 
-export const { useRegisterUserMutation, useLoginUserMutation, useGetLoggedUserQuery } = userAuthApi
+export const { useRegisterUserMutation, useLoginUserMutation, useProfileQuery } = userAuthApi

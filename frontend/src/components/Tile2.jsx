@@ -6,7 +6,7 @@ import liked from "../Images/redheart.png"
 import { useAddLikedSongMutation, useRemoveLikedSongMutation } from '../services/likedSongsApi'
 import { getToken, storeLikedSongs } from '../services/localStorage'
 
-export default function Tile(props) {
+export default function Tile2(props) {
 
   const [addLiked] = useAddLikedSongMutation()
   const [removeLiked] = useRemoveLikedSongMutation()
@@ -16,10 +16,7 @@ export default function Tile(props) {
     if(String(document.getElementById(props.number).src).slice(-23)=="src/Images/redheart.png"){
       //if already liked
       const { access_token } = getToken()
-
-      //CHANGE THIS SONG NAME LATER
       let songName = "Test5"
-
       const res = await removeLiked({songName, access_token})
       storeLikedSongs(res.data.likedSongs)
       document.getElementById(props.number).src=like;
@@ -27,10 +24,7 @@ export default function Tile(props) {
     else{
       //if not already liked
       const { access_token } = getToken()
-
-      //CHANGE THIS SONG NAME LATER
       let songName = "Test5"
-      
       const res = await addLiked({songName, access_token})
       console.log(res);
       storeLikedSongs(res.data.likedSongs)
@@ -40,7 +34,7 @@ export default function Tile(props) {
   return (
     <div className="col">
                 <div className='Songimg'><img src="https://filmfare.wwmindia.com/content/2022/apr/arijitsingh11650885572.jpg"alt=""/></div>
-                <div className='Song'><div className="songname">Song Number {props.number}</div><span className="singername">Arijit Singh <span><button className='song-play'><img src={play} alt="" /></button><button  className='song-like'><img id={props.number}  onClick={()=>handleLike()} src={like} alt="" /></button></span></span>   
+                <div className='Song'><div className="songname">{props.songName}</div><span className="singername">Arijit Singh <span><button className='song-play'><img src={play} alt="" /></button><button  className='song-like'><img id={props.number}  onClick={()=>handleLike()} src={like} alt="" /></button></span></span>   
             </div>
             
             </div>
