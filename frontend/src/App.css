@@ -1897,3 +1897,8 @@ body {
 .search-card .headers{
   padding: 20px 0px;
 }
+
+.language:active{
+  border: solid 5px lightblue;
+  opacity: 0.2;
+}

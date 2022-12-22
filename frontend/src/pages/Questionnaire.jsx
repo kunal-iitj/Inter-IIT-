@@ -6,7 +6,26 @@ import arrow from './../Images/arrow.png'
 
 
 const Questionnaire = () => {
+  const [languages, addLanguage] = useState([]);
 
+  function handleClick(e){
+    addLanguage([...languages, e.target.value]);
+    console.log(languages);
+  }
+
+  async function handleSubmit(e){
+    const userLanguages = {languages : languages}
+    const response = await fetch(  
+      '', 
+      {
+        method: 'POST', 
+        body: JSON.stringify(userLanguages),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
+  }
   function leftScroll(heading) {
     const left = document.querySelector(`.${heading}`);
     if(left) left.scrollBy(-150, 0);
@@ -30,9 +49,9 @@ const Questionnaire = () => {
       <p className="q">Please choose your listening language:</p>
 
       <div className="question">
-        <button className="language"  >Hindi</button>
-        <button className="language" >English</button>
-        <button className="language" >Punjabi</button>
+        <button className="language" value='Hindi' onClick={handleClick} >Hindi</button>
+        <button className="language" value='English'onClick={handleClick}>English</button>
+        <button className="language" value='Punjabi' onClick={handleClick}>Punjabi</button>
       </div>
       <p className="q">Please choose your favorite artists:</p>
       
@@ -46,7 +65,7 @@ const Questionnaire = () => {
       </div>
 
       <div className="submit">
-        <button className="submitbutton">Submit</button>
+        <button className="submitbutton" onClick={handleSubmit}>Submit</button>
       </div>
     </>
   );
