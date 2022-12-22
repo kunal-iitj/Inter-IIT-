@@ -12,4 +12,4 @@ def fetchPreference(request):
     body = request.body.decode('utf-8')
     body = json.loads(body)
     languages = body['languages']
-
+    print(languages)
