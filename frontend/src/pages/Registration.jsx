@@ -39,6 +39,7 @@ export default function Registration(){
         //   console.log(res.data.token)
         //   alert(res.data.msg)
         storeToken(res.data.token)
+        localStorage.setItem("email", actualData.email)
         navigate('/question')
         }
     }
