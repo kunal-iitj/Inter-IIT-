@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class UserpreferencesConfig(AppConfig):
+class UserpreferenceConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'userPreferences'
+    name = 'userPreference'
