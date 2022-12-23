@@ -7,19 +7,36 @@ import arrow from './../Images/arrow.png'
 
 const Questionnaire = () => {
   const [languages, addLanguage] = useState([]);
+  const [Genres, addGenres] = useState([]);
 
   function handleClick(e){
-    console.log(languages);
     if(languages.includes(e.target.value)){
       document.getElementById(`${e.target.value}`).style.border =  "solid 2px black"
       var index = languages.indexOf(e.target.value);
       if (index !== -1) {
         languages.splice(index, 1);
         addLanguage(languages)
+        console.log(languages);
       }
     }else{
       document.getElementById(`${e.target.value}`).style.border =  "solid 4px red"
       addLanguage([...languages, e.target.value])
+      console.log(languages,`${e.target.value}`);
+    }
+  }
+  function handleClickGenres(e){
+    if(Genres.includes(e.target.value)){
+      document.getElementById(`${e.target.value}`).style.border =  "solid 2px black"
+      var index = Genres.indexOf(e.target.value);
+      if (index !== -1) {
+        Genres.splice(index, 1);
+        addGenres(Genres)
+        console.log(Genres);
+      }
+    }else{
+      document.getElementById(`${e.target.value}`).style.border =  "solid 4px red"
+      addGenres([...Genres, e.target.value])
+      console.log(Genres,`${e.target.value}`);
     }
   }
 
@@ -86,12 +103,12 @@ const Questionnaire = () => {
       <p className="q">Please choose your favorite artists:</p>
       
       <div className="question2 question">
-        <button className="chooseGenres" value='Rock' >Rock</button>
-        <button className="chooseGenres" value='R&b' >R&B</button>
-        <button className="chooseGenres" value='Pop' >Pop</button>
-        <button className="chooseGenres" value='Edm' >Edm</button>
-        <button className="chooseGenres" value='Latin' >Latin</button>
-        <button className="chooseGenres" value='Rap' >Rap</button>
+        <button className="chooseGenres" value='Rock'  id='Rock'  onClick={handleClickGenres}>Rock</button>
+        <button className="chooseGenres" value='R&b'   id='R&b'   onClick={handleClickGenres}>R&B</button>
+        <button className="chooseGenres" value='Pop'   id='Pop'   onClick={handleClickGenres}>Pop</button>
+        <button className="chooseGenres" value='Edm'   id='Edm'   onClick={handleClickGenres}>Edm</button>
+        <button className="chooseGenres" value='Latin' id='Latin' onClick={handleClickGenres}>Latin</button>
+        <button className="chooseGenres" value='Rap'   id='Rap'   onClick={handleClickGenres}>Rap</button>
       </div>
 
       <div className="submit">
