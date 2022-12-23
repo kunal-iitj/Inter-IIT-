@@ -10,6 +10,7 @@ import json
 @api_view(['POST'])
 def fetchPreference(request):
     body = request.body.decode('utf-8')
-    object = UserPreference(body['languages'])
-    object.save()
-    return None
+    body = json.loads(body)
+    user = UserPreference(languages = body)
+    user.save()
+    return Response(body)
