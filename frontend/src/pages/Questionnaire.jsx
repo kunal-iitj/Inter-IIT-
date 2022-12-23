@@ -12,12 +12,17 @@ const Questionnaire = () => {
     document.getElementById(`${e.target.value}`).style.border =  "solid 4px red"
     addLanguage([...languages, e.target.value]);
     console.log(languages);
+    if(languages.includes(e.target.value)){
+    }else{
+      addLanguage([...languages, e.target.value])
+    }
   }
 
   async function handleSubmit(e){
-    const userLanguages = {languages : languages}
+    console.log(languages);
+    const userLanguages = {languages : languages, email : localStorage.getItem("email")}
     const response = await fetch(  
-      '', 
+      'http://127.0.0.1:8000/question/preferences/', 
       {
         method: 'POST', 
         body: JSON.stringify(userLanguages),

@@ -3,7 +3,7 @@ import Card from './ArtistCard'
 
 
 
-export default function Recommended() {
+export default function Recommended(props) {
     const recommended = 6;
     var recommendedartist=[];
     var a=0;
