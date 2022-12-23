@@ -9,11 +9,16 @@ const Questionnaire = () => {
   const [languages, addLanguage] = useState([]);
 
   function handleClick(e){
-    document.getElementById(`${e.target.value}`).style.border =  "solid 4px red"
-    addLanguage([...languages, e.target.value]);
     console.log(languages);
     if(languages.includes(e.target.value)){
+      document.getElementById(`${e.target.value}`).style.border =  "solid 2px black"
+      var index = languages.indexOf(e.target.value);
+      if (index !== -1) {
+        languages.splice(index, 1);
+        addLanguage(languages)
+      }
     }else{
+      document.getElementById(`${e.target.value}`).style.border =  "solid 4px red"
       addLanguage([...languages, e.target.value])
     }
   }
