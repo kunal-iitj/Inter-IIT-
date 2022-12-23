@@ -1,4 +1,5 @@
 import React from 'react'
+import {  useNavigate } from 'react-router-dom';
 import { getUserName } from '../services/localStorage';
 import profile from "./../Images/profile.jpg"
 
@@ -10,6 +11,7 @@ import Topartists from './Topartists';
 
 
 export default function Midforprofile() {
+  const navigate = useNavigate()
   function leftScroll(heading) {
     const left = document.querySelector(`.${heading}`);
     if(left) left.scrollBy(-150, 0);
@@ -22,9 +24,9 @@ export default function Midforprofile() {
   return (
     <div className='parts'>
       <div className="part1">
-        <button className="albums">Albums</button>
-        <button className="playlisttop">Playlist</button>
-        <button className="genres">Genres</button>
+      <button className="albums" onClick={()=>navigate('/albums')}>Albums</button>
+            <button className="playlisttop" onClick={()=>navigate('/playlist')}>Playlist</button>
+            <button className="genres" onClick={()=>navigate('/genres')}>Genres</button>
         <div className="profile">
         <img src={profile} alt="Avatar"/>
         <div className="Username">{getUserName()}</div>

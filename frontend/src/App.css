@@ -15,7 +15,7 @@
   margin: 0;
   color: rgba(255, 255, 255, 0.688);
   padding: 0vw 0vw 0vw 2vw;
-  background-color: #1d242c;
+  /* background-color: #1d242c; */
 }
 
 .middlebox {
@@ -1301,7 +1301,6 @@ body{
   border-radius: 12px;
   background-color: #1d242c;
   color: black;
-  /* overflow-x: hidden; */
 }
 .playlists{
   display: flex;
@@ -1310,20 +1309,15 @@ body{
   left: 00vw;
   width: 80vw;
   background-color: #16191e;
-  /* overflow-y: scroll; */
-  /* -ms-overflow-style: scroll; */
-  /* scrollbar-width: none; */
+
 }
-.playlists::-webkit-scrollbar{
-  display: none;
-}
+
 .playlist-main h2{
   font-family:sans-serif;
   margin-top: 3px;
 }
 .playlist-main h4{
   font-family:sans-serif;
-  /* text-align: left; */
   margin-top: -10px;
   padding-left: 12px;
   opacity: 0.5;
@@ -1334,7 +1328,7 @@ body{
   height: 30px;
   width: 30px;
   left: 90px;
-  top: -40px;
+  top: -10px;
   border-radius: 200px;
 }
 #play-playlist:hover{
@@ -1389,7 +1383,7 @@ body{
 
 body {
   height: 100vh;
-  background-color: #191815;
+  /* background-color: #16191e; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1557,6 +1551,81 @@ nav ul li:hover,
   }
 }
 
+
+.album-right{
+  top: 0;
+  position: absolute;
+  left: 18vw;
+  width: 82vw;
+  height: 100vh;
+  background-color: #16191e;
+  overflow: auto;
+  color: white;
+}
+.album-right::-webkit-scrollbar{
+  display: none;
+}
+.album-part{
+  background-color: #16191e;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: absolute;
+  top: 12vh;
+  left: 0px;
+  justify-content: flex-start;
+  width: 80vw;
+}
+.album-tile{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 40vh;
+  justify-content: center;
+  margin: 1vw;
+  background-color: #1d242c;
+  border-radius: 5px;
+}
+.album-img{
+  position: relative;
+  top: 0vh;
+  width: 200px;
+}
+.album-img img{
+  width: 200px;
+  height: 30vh;
+  border-radius: 5px;
+}
+.album-content{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  position: relative;
+  /* top:32vh; */
+  height: 10vh;
+  width: 200px;
+  border-radius: 5px;
+  color:white;
+}
+.album-name{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 10px;
+  width: 200px;
+  height: 20px;
+  padding: 4px;
+  font-size: large;
+}
+.album-followers{
+  position: relative;
+  left: 5px;
+  top: 25px;
+  width: 200px;
+  height: 4vh;
+  color: #838989;
+  font-size: medium;
+}
 
 /* profile page css by niranjan */
 .profile-area{

@@ -4,8 +4,11 @@ import profile from "../Images/profile.jpg";
 
 import ImageSlider from "../components/ImageSlider";
 import Playlistcard from "../components/Playlistcard";
+import { getUserName } from "../services/localStorage";
+import { useNavigate } from "react-router-dom";
 
 export default function Playlist() {
+  const navigate = useNavigate()
 
   const [playlists, setPlaylists] = useState([])
   const fetchPlaylists = async () => {
@@ -34,12 +37,12 @@ export default function Playlist() {
       </div>
       <div className="playlist-right">
         <div className="part1">
-          <button className="albums">Albums</button>
-          <button className="playlisttop">Playlist</button>
-          <button className="genres">Genres</button>
+          <button className="albums" onClick={()=>navigate('/albums')}>Albums</button>
+            <button className="playlisttop" onClick={()=>navigate('/playlist')}>Playlist</button>
+            <button className="genres" onClick={()=>navigate('/genres')}>Genres</button>
           <div className="profile">
             <img src={profile} alt="Avatar" />
-            <div className="Username">username</div>
+            <div className="Username">{getUserName()}</div>
           </div>
         </div>
         <div className="playlists">
