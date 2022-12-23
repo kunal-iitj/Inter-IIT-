@@ -20,7 +20,7 @@ const Questionnaire = () => {
 
   async function handleSubmit(e){
     console.log(languages);
-    const userLanguages = {languages : languages}
+    const userLanguages = {languages : languages, email : localStorage.getItem("email")}
     const response = await fetch(  
       'http://127.0.0.1:8000/question/preferences/', 
       {
