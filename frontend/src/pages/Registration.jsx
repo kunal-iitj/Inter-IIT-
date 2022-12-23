@@ -38,8 +38,8 @@ export default function Registration(){
         if (res.data) {
         //   console.log(res.data.token)
         //   alert(res.data.msg)
-        navigate('/home')
-          storeToken(res.data.token)
+        storeToken(res.data.token)
+        navigate('/question')
         }
     }
 

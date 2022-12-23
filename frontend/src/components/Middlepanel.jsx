@@ -9,9 +9,11 @@ import Instrumental from './Instrumental';
 import ImageSlider from './ImageSlider';
 import Songsrecomm from './Songsrecomm';
 import { getUserName } from '../services/localStorage';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Middlepanel() {
+  const navigate = useNavigate()
   function leftScroll(heading) {
     const left = document.querySelector(`.${heading}`);
     if(left) left.scrollBy(-150, 0);
@@ -24,9 +26,9 @@ export default function Middlepanel() {
   return (
     <div className='parts'>
       <div className="part1">
-        <button className="albums">Albums</button>
-        <button className="playlisttop">Playlist</button>
-        <button className="genres">Genres</button>
+      <button className="albums" onClick={()=>navigate('/albums')}>Albums</button>
+            <button className="playlisttop" onClick={()=>navigate('/playlist')}>Playlist</button>
+            <button className="genres" onClick={()=>navigate('/genres')}>Genres</button>
         <div className="profile">
         <img src={profile} alt="Avatar"/>
         <div className="Username">{getUserName()}</div>

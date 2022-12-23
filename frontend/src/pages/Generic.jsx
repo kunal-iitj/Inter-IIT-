@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import appicon from '../Images/appicon.png'
 import videoBg from  "../Images/video.mp4"
-import { BrowserRouter,Routes,Route,Link } from 'react-router-dom'
+
+import { BrowserRouter,Routes,Route,Link, useNavigate } from 'react-router-dom'
+import { getToken } from '../services/localStorage'
+
 export default function Generic() {
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+      var token  = getToken()
+      if(token.access_token){
+        navigate('/home');
+      }
+    },[])
+    
     return (
     <section id="main">
     <nav>
@@ -29,3 +41,4 @@ export default function Generic() {
     </section>
   )
 }
+
