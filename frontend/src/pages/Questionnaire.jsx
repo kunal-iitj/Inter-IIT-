@@ -79,7 +79,7 @@ const Questionnaire = () => {
         </div>
       </div>
 
-      <p className="q">Please choose your listening language:</p>
+      <p className="q">Please choose your listening languages:</p>
 
       <button className="Generic-left" onClick={()=>leftScroll("question1")}>
       <img src={arrow} alt="" />
@@ -104,7 +104,7 @@ const Questionnaire = () => {
       </div>
         <button className="Generic-right" onClick={()=>rightScroll("question1")}>
           <img src={arrow} alt="" /></button>
-      <p className="q">Please choose your favorite artists:</p>
+      <p className="q">Please choose your favorite Genres:</p>
       
       <div className="question2 question">
         <button className="chooseGenres" value='Rock'  id='Rock'  onClick={handleClickGenres}>Rock</button>
