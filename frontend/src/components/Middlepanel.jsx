@@ -12,6 +12,18 @@ import { getUserName } from '../services/localStorage';
 
 
 export default function Middlepanel() {
+  const fetchRecommendation = async() => {
+     const response = await fetch(
+      '',
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
+  }
+
   function leftScroll(heading) {
     const left = document.querySelector(`.${heading}`);
     if(left) left.scrollBy(-150, 0);
