@@ -9,14 +9,20 @@ const Questionnaire = () => {
   const [languages, addLanguage] = useState([]);
 
   function handleClick(e){
-    addLanguage([...languages, e.target.value]);
-    console.log(languages);
+    if(languages.includes(e.target.value)){
+      console.log('hello')
+      console.log(e.target.value);
+    }else{
+      addLanguage([...languages, e.target.value])
+      console.log(languages);
+    }
   }
 
   async function handleSubmit(e){
+    console.log(languages);
     const userLanguages = {languages : languages}
     const response = await fetch(  
-      '', 
+      'http://127.0.0.1:8000/question/preferences/', 
       {
         method: 'POST', 
         body: JSON.stringify(userLanguages),
