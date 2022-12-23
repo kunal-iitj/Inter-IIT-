@@ -8,11 +8,11 @@ import { ApiProvider } from '@reduxjs/toolkit/dist/query/react'
 import { DataApi } from './services/dataapi'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       {/* <ApiProvider api={DataApi}> */}
     <App />
     {/* </ApiProvider> */}
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 )
