@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import search from './../Images/searchcolor.png'
+import searchImg from './../Images/searchcolor.png'
 import SearchCard from './SearchCard';
 
 export default function Rightpanel() {
@@ -31,8 +31,8 @@ export default function Rightpanel() {
       <div className="search" >
         <label htmlFor="search"><h2>Quick Search</h2></label>
         <div className="searchbar">
-          <input type="text" placeholder='Search' id="search" value={search} onChange={handleChange}/>
-          <button type='submit' onClick={handleSubmit}>Click</button>
+          <input type="text" placeholder='Search' id="search" value={search} onChange={handleChange} autoComplete='off'/>
+          <button type='submit' onClick={handleSubmit}><img src={searchImg} alt="" srcset="" /></button>
         </div>
         <SearchCard name={data.name} image={data.images} artist={data.artist}/>
       </div>
