@@ -14,7 +14,6 @@ import Albums from './pages/Albums';
 import Genres from './pages/Genres';
 import Check from './pages/Check';
 function App() {
-  
   return (
     <>
     <BrowserRouter>

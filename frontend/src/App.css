@@ -1670,16 +1670,73 @@ nav ul li:hover,
   font-size: 1.5rem;
 }
 .question {
-  display:flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align:center;
+  display: grid;
+  grid-auto-flow: column;
+  overflow: auto;
+  outline: none;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding: 5px;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  -ms-overflow-style: scroll;
+  scrollbar-width: none;
+  letter-spacing: 0.1em;
+  width: 67vw;
+  height: 20.5vh;
 }
-.question button {
-  height: 20vh;
-  width: 20vh;
-  margin-left: 10vh;
+.question::-webkit-scrollbar{
+  display: none;
+}
+.Generic-left img {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  width: 1.5vw;
+}
+.Generic-right img{
+  width: 1.5vw;
+}
+.Generic-left :hover {
+  width: 1.7vw;
+  opacity: 1;
+}
+.Generic-right :hover {
+  width: 1.7vw;
+  opacity: 1;
+}
+.Generic-left{
+  position: absolute;
+  left: 14.7vw;
+  top: 43%;
+  transform: translateY(-50%);
+  background-color: inherit;
+  opacity: 0.5;
+  border: none;
+}
+.Generic-left :hover {
+  width: 1.7vw;
+  opacity: 1;
+}
+.Generic-right :hover {
+  width: 1.7vw;
+  opacity: 1;
+}
+.Generic-right{
+  position: absolute;
+  left: 83vw;
+  top: 43%;
+  transform: translateY(-50%);
+  background-color: inherit;
+  opacity: 0.5;
+  border: none;
+}
+.language,.chooseGenres {
+  height: 140px ; 
+  width: 140px ;
+  margin: 0vh 2vh 0vh 2vh;
   border-radius: 10px;
   color:white;
   font-weight:bold;
@@ -1703,7 +1760,6 @@ nav ul li:hover,
   box-shadow: 0 2px;
   color:#16191e;
   background-color: white;
-  
 }
 /* Questionnaire css by niranjan */
 
@@ -1898,7 +1954,7 @@ body {
   padding: 20px 0px;
 }
 
-.language:active{
+.language:active,.chooseGenres:active{
   border: solid 5px lightblue;
   opacity: 0.2;
 }

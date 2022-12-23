@@ -35,10 +35,7 @@ export default function Middlepanel() {
         </div>
         
       </div>
-      {/* <div className="Hots">
-        <div className="albumphoto"><img src={profile} alt="" /></div>
-        <div className="album_desc">Most Trending Songs| <p>#Artist Name</p></div>
-      </div> */}
+
       <ImageSlider/>
       <div className="part2">
         <h1>Recommended Artists</h1>
