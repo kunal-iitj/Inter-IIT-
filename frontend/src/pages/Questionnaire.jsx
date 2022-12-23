@@ -3,9 +3,11 @@ import appicon from "./../Images/appicon.png";
 import {useState} from 'react'
 import FavArtists from "../components/FavArtist";
 import arrow from './../Images/arrow.png'
+import { useNavigate } from "react-router-dom";
 
 
 const Questionnaire = () => {
+  const navigate = useNavigate()
   const [languages, addLanguage] = useState([]);
   const [Genres, addGenres] = useState([]);
 
@@ -42,6 +44,7 @@ const Questionnaire = () => {
 
   async function handleSubmit(e){
     console.log(languages);
+    console.log(Genres);
     const userLanguages = {languages : languages, email : localStorage.getItem("email")}
     const response = await fetch(  
       'http://127.0.0.1:8000/question/preferences/', 
@@ -52,14 +55,15 @@ const Questionnaire = () => {
           'Content-Type': 'application/json'
         }
       }
+
     )
+    navigate('/home')
   }
   function leftScroll(heading) {
     const left = document.querySelector(`.${heading}`);
     if(left) left.scrollBy(-150, 0);
   }
   function rightScroll(heading) {
-   console.log("232")
     const right = document.querySelector(`.${heading}`);
     if(right) right.scrollBy(150, 0);
   }
