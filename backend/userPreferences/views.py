@@ -11,5 +11,6 @@ import json
 def fetchPreference(request):
     body = request.body.decode('utf-8')
     body = json.loads(body)
-    languages = body['languages']
-    print(languages)
+    user = UserPreference(languages = body['lan'])
+    user.save()
+    return Response(body)
