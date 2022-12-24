@@ -63,17 +63,19 @@ def makeSearchCall(token, searchQuery: str, filter: str):
 
 def fetchArtist(request, givenArtist):
     token = getAccessToken()
-    artist = makeSearchCall(token, givenArtist, 'artist')
+    artist = makeSearchCall(token, givenArtist, 'track')
     required_response = dict()
+    required_response['image'] = artist['album']['images'][1]['url']
     required_response['name'] = artist['name']
-    required_response['images'] = artist['images']
-    required_response['genres'] = artist['genres']
     return required_response
 
 
 @api_view(['GET'])
 def fetchRecommendedArtists(request):
-    givenArtists = ['Drake', 'Weekend']
+    with open('recommendations.txt', 'r') as file:
+        artists = file.read()
+        artists = artists.split('\n')
+    givenArtists = artists
     responseList  = []
     for artist in givenArtists:
         responseList.append(fetchArtist(request, artist))

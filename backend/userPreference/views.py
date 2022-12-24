@@ -18,12 +18,16 @@ def fetchPreference(request):
     languageJson = body['languageJson']
     genresJson = body['genresJson']
     user_id = User.objects.get(email=user).id
-    preference = UserPreference.objects.create(user=user, languages=languageJson, genres=genresJson, user_id=user_id)
-    preference.save()
+    if UserPreference.objects.filter(user_id=user_id).exists():
+        pass 
+    else:
+        preference = UserPreference.objects.create(user=user, languages=languageJson, genres=genresJson, user_id=user_id)
+        preference.save()
     makePreferenceCsv()
-    print(preference.user_id)
-    listOfsongs = recommend(preference.user_id, 10, 'songs_main.csv', 'preference.csv', 'likes.csv')
-    print(listOfsongs)
+    listOfsongs = recommend(user_id, 10, 'songs_main.csv', 'preference.csv', 'likes.csv')
+    with open('recommendations.txt', 'w') as file:
+        for song in listOfsongs:
+            file.write(song + '\n')
     return Response({'message': 'success'})
 
 
