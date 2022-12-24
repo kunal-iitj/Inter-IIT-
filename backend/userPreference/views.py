@@ -4,6 +4,7 @@ from rest_framework.response import Response
 import requests
 import json
 from .models import UserPreference
+from user.models import User
 
 # Create your views here.
 
@@ -16,6 +17,7 @@ def fetchPreference(request):
     preference.user = body['email']
     preference.languages = body['languageJson']
     preference.languages = body['genresJson']
+    preference.user_id = User.objects.get(email=body['email']).id
     preference.save()
     return Response(body)
 

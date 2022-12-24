@@ -4,8 +4,9 @@ from django.db import models
 
 class UserPreference(models.Model):
     languages = models.JSONField()
-    genres = models.JSONField()
+    genres = models.JSONField(default=None)
     user = models.EmailField()
+    user_id = models.IntegerField()
 
     def __str__(self):
         return self.user
