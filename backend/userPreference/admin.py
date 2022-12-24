@@ -3,4 +3,5 @@ from .models import UserPreference
 
 # Register your models here.
 
+
 admin.site.register(UserPreference)
