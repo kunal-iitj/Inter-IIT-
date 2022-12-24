@@ -6,7 +6,7 @@ class UserPreference(models.Model):
     languages = models.JSONField()
     genres = models.JSONField(default=None)
     user = models.EmailField()
-    user_id = models.IntegerField()
+    user_id = models.IntegerField(default=None)
 
     def __str__(self):
         return self.user
