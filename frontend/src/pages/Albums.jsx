@@ -49,7 +49,7 @@ export default function Albums() {
 
         <div className="album-part">
           {Artists.map(i=>{
-            return <Tile3Albums name={i.name} image={i.images[0].url}/>
+            return <Tile3Albums name={i.name} image={i.image}/>
           })
 
           }

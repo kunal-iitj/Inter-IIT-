@@ -31,7 +31,6 @@ export default function Midforprofile() {
         <img src={profile} alt="Avatar"/>
         <div className="Username">{getUserName()}</div>
         </div>
-        
       </div>
       {/* <div className="Hots">
         <div className="albumphoto"><img src={profile} alt="" /></div>
@@ -50,10 +49,10 @@ export default function Midforprofile() {
           
       </div>
       
-      <div className="top-songs">
-        <h1>Your Top Songs</h1>
-        <Songsrecomm/>
-      </div>
+      {/* <div className="top-songs"> */}
+        {/* <h1>Your Top Songs</h1> */}
+        {/* <Songsrecomm/> */}
+      {/* </div> */}
 
       
 

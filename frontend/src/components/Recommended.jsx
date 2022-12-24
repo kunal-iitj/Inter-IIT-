@@ -4,16 +4,13 @@ import Card from './ArtistCard'
 
 
 export default function Recommended(props) {
-    const recommended = 6;
-    var recommendedartist=[];
-    var a=0;
-    for(var i=0; i<recommended; i++){
-        recommendedartist.push({Card:<Card/>,key:i});
-      }
+  const songs  = props.recommendation
+  console.log(songs)
+  var a=0;
   return (
     <div className="scrolled recommended">
-          {recommendedartist.map(i=>
-          {return <Card number={a} key={a++} />}
+          {songs.map(i=>
+          {return <Card number={a} key={a++} name={i.name} image={i.image}/>}
         )}  
         </div>
   )
