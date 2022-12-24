@@ -5,3 +5,6 @@ user_id,languages,genres
 3,"English,Filipino","Rock,R&b"
 3,"English,Filipino,Italian","Pop,R&b,Rock"
 5,English,Pop
+6,"English,Filipino","R&b,Edm"
+7,English,"Rock,Pop"
+8,"English,Filipino,Italian","Rock,Edm,Pop,Rap"

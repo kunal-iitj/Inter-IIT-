@@ -21,7 +21,6 @@ def load_data(songs_url,user_profile_url,likes_url):
     songs_data=pd.read_csv(songs_url)
     user_data= pd.read_csv(user_profile_url)
     likes_data=pd.read_csv(likes_url)
-    user_data.set_index('user_id')
 
 
 #convert genres in list form
@@ -58,9 +57,9 @@ def find_genre(x,i):
 
     if i in x['genres']:
         return 1
-    if i in x['language']:
+    elif i in x['language']:
         return 1
-    if i in x['artist']:
+    elif i in x['artist']:
         return 1
 
 #Function that adds score of first algorithm to dataframe
@@ -70,7 +69,6 @@ def set_score_1():
     sim_scores=sim_scores[:-1]
     # Sort the songs based on the similarity scores
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
-
     # Get the song indices
     indices = [i[0] for i in sim_scores]
 
@@ -81,6 +79,7 @@ def set_score_1():
 
 #Function that adds score of first algorithm to dataframe
 def set_score_2():
+    metadata['score_2']=0
     for i in range(len(user_predicted_like)):
         metadata.loc[i,'score_2']=user_predicted_like[i]
 
@@ -93,7 +92,7 @@ def run_algorithm_1(userId):
         metadata[feature] = metadata[feature].apply(clean_data)
     metadata['soup'] = metadata.apply(create_soup, axis=1)
     #user-profile of preferences
-    print(user_data)
+
     user_item= user_data.loc[userId]
     user_languages=to_list_2(user_item['languages'])
     user_genres=to_list(user_item['genres'])
@@ -101,7 +100,7 @@ def run_algorithm_1(userId):
 
     #string mixture of user preferences
     user_soup=' '.join(user_genres)
-    
+
     #metadata for first algorithm(considered only user preferred languages)
     metadata_1=metadata[metadata['language'].isin(user_languages) ]
     metadata_1=metadata_1.reset_index()
@@ -113,11 +112,12 @@ def run_algorithm_1(userId):
 
     #matrix showing similarity among songs and also between the user based on cosine similarity
     cosine_sim = cosine_similarity(count_matrix, count_matrix)
+
     #indices to get songIds
     sim_indices = pd.Series(metadata_1['songId'],index=metadata_1.index)
     song_indices=pd.Series(metadata['title'], index=metadata.index)
-
     set_score_1()
+
 
 def run_algorithm_2(userId):
     global like, user_predicted_like
@@ -128,6 +128,7 @@ def run_algorithm_2(userId):
         metadata[feature]=metadata[feature].apply(to_list)
         metadata[feature] = metadata[feature].apply(clean_data)
     #Add each genre to dataframe
+
     for i in l_genres:
         i=i.lower()
         metadata[i]=metadata.apply(find_genre, args=(i,), axis=1)
@@ -146,7 +147,7 @@ def run_algorithm_2(userId):
 
     metadata_genre=metadata.copy()
     metadata_genre.drop(['genres','soup','title','artist','language','score_1'], axis=1, inplace=True)
-    # print(metadata_genre)
+
 
     working_metadata = metadata_genre.mul(like.iloc[:,userId], axis=0)
     working_metadata.replace(0, np.NaN, inplace=True)    
@@ -159,18 +160,23 @@ def run_algorithm_2(userId):
 
     #The dot product of article vectors and Imetadata vectors gives us the weighted scores of each article.
     imetadata_metadata = metadata_genre.mul(imetadata)
+
     working_metadata = imetadata_metadata.mul(metadata_users, axis=1)
+    working_metadata.replace(np.NaN, 0, inplace=True)   
+
     user_predicted_like = working_metadata.sum(axis=1)
+
 
     #Normalising the predicted like to have the value less between 0 to 1
     user_predicted_like=user_predicted_like/user_predicted_like.sum()
-
+    user_predicted_like.replace(np.NaN, 0, inplace=True) 
     set_score_2()
 
 def songs_liked_by_user(userId):
-    user_df=like[like.index== userId]
-    songs_liked=user_df.columns[user_df.values[0]==1].to_list()
 
+    user_df=like[like.index== userId]
+
+    songs_liked=user_df.columns[user_df.values[0]==1].to_list()
     return songs_liked
 
 #Function that runs the third algorithm
