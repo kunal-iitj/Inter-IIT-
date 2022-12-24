@@ -21,6 +21,7 @@ def load_data(songs_url,user_profile_url,likes_url):
     songs_data=pd.read_csv(songs_url)
     user_data= pd.read_csv(user_profile_url)
     likes_data=pd.read_csv(likes_url)
+    user_data.set_index('user_id')
 
 
 #convert genres in list form
@@ -92,6 +93,7 @@ def run_algorithm_1(userId):
         metadata[feature] = metadata[feature].apply(clean_data)
     metadata['soup'] = metadata.apply(create_soup, axis=1)
     #user-profile of preferences
+    print(user_data)
     user_item= user_data.loc[userId]
     user_languages=to_list_2(user_item['languages'])
     user_genres=to_list(user_item['genres'])
@@ -226,7 +228,7 @@ def recommend(userId,n,songs_url,user_profile_url,likes_url):
     metadata.sort_values(by='score', inplace=True, ascending=False)
 
     #return the recommended songs
-    return metadata['title'].iloc[0:n]
+    return list(metadata['title'].iloc[0:n])
 
 
 
